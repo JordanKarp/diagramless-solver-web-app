@@ -1,7 +1,11 @@
 from flask import Flask, request, render_template
+import os
+
 from solver.main import run
 
 app = Flask(__name__)
+
+PORT = os.getenv("PORT")
 
 
 @app.route("/")
@@ -35,4 +39,4 @@ def solve():
 
 
 if __name__ == "__main__":
-    app.run(port=5000)
+    app.run(port=PORT)
