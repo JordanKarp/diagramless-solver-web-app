@@ -1,0 +1,45 @@
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+body {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+
+label {
+    display: block;
+}
+
+.solution > table {
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin: 10px;
+}
+
+
+.sq {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 2px 12px 6px 2px;
+}
+.black {
+    background-color: black;
+}
+
+.number {
+    vertical-align: super;
+    text-size-adjust: 60%;
+}
+
+
+#solutions {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.solution {
+    margin: 10px;
+}

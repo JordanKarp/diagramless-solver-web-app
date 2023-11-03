@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js" defer></script>
+    <title>Diagramless Solver</title>
+</head>
+<body>
+    <header>
+        <a href='/'><box-icon type='solid' name='home'></box-icon></a>
+        <h1>Diagramless Crossword Solver</h1>
+        <a href='/'><box-icon name='info-circle' type='solid' ></box-icon></a>
+    </header>
+    <hr/>
+    
+    <div id="puzzleDetails">
+        <table>
+            <tr>
+                <td>Dimensions:</td>
+                <td>{{ ""+ puzzle.get('rows') + ' x ' +  puzzle.get('columns') }}</td>
+            </tr>
+            <tr>
+                <td>Across clues:</td>
+                <td>{{ puzzle.get('acrossClues').replace(' ', ', ') }}</td>
+            </tr>
+            <tr>
+                <td>Down clues:</td>
+                <td>{{ puzzle.get('downClues').replace(' ', ', ') }}</td>
+            </tr>
+            <tr>
+                <td>Symmetry:</td>
+                {% if puzzle.get('symmetry') %}
+                <td>{{ puzzle.get('symmetry') }}</td>
+                {% else %}
+                <td>Not enforced</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>Starting square:</td>
+                {% if puzzle.get('starting')!='0' %}
+                <td>{{ puzzle.get('starting') }}</td>
+                {% else %}
+                <td>Not enforced</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>Interconnected:</td>
+                <td>{{ puzzle.get('connected') == 'on'}}</td>
+            </tr>
+            <tr>
+                <td>Find all:</td>
+                <td>{{ puzzle.get('findAll') == 'on'}}</td>
+            </tr>
+            <tr>
+                <td>Solutions found:</td>
+                <td>{{ solutions|length }}</td>
+            </tr>
+        </table>
+
+    </div>
+
+    {% if not solutions %}
+    <h2>No solutions found</h2>
+
+    {% else %}
+
+    <div id="solutions">
+        {% for sol in solutions %}
+        <div class="solution">
+            <p>{{ loop.index }}: </p>
+            <table>
+                <tbody>
+                    <tr>
+                        {% for sq in sol.split(' ') %}
+                        {% if sq == '\n' %}
+                    </tr>
+                    {% if loop.index != loop.length %}
+                        <tr>
+                    {% endif %}
+                        {% elif sq == '▇▇' %}
+                        <td class="sq black"></td>
+                        {% elif sq == '--' %}
+                        <td class="sq">  </td>
+                        {% else %}
+                        <td class="sq"><sup>{{sq}}</sup></td>
+                        {% endif %}
+                        {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</body>
+</html>

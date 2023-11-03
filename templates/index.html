@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js" defer></script>
+    <title>Diagramless Crossword Builder</title>
+</head>
+<body>
+    <header>
+        <a href='/'><box-icon type='solid' name='home'></box-icon></a>
+        <h1>Diagramless Crossword Solver</h1>
+        <a href='/info'><box-icon name='info-circle' type='solid' ></box-icon></a>
+    </header>
+    <hr/>
+
+    <form action="/solve" method="post">
+        <label for="rows" title="Number of rows in the puzzle">ⓘ Rows: 
+            <input type="number" name="rows" id="rowInput" min="3" required/>
+        </label>
+        <label for="columns" title="Number of columns in the puzzle">ⓘ Columns: 
+            <input type="number" name="columns" id="columnInput" min="3" required/>
+        </label>
+        <label for="acrossClues" title="List across clues separated by a space">ⓘ Across Clues: 
+            <input type="text" name="acrossClues" id="acrossInput" pattern="\d+ (?:\d+ )*\d+" required/>
+        </label>
+        <label for="downClues" title="List down clues separated by a space">ⓘ Down Clues: 
+            <input type="text" name="downClues" id="downInput" pattern="\d+ (?:\d+ )*\d+" required/>
+        </label>
+        <label for="symmetry" title="Define the puzzle's symmetry">ⓘ Symmetry: 
+            <select name="symmetry">
+                <option value="None"> -- Choose Symmetry -- </option>
+                <option value="None">None enforced</option>
+                <option value="Rotational">Rotational</option>
+                <option value="Left Right">Left Right</option>
+                <option value="Up Down">Up Down</option>
+                <option value="Dual Rotational">Dual Rotational</option>
+                <option value="Three Way">Three Way</option>
+                <option value="Diagonal TLBR">Diagonal TLBR</option>
+                <option value="Diagonal TRBL">Diagonal TRBL</option>
+                <option value="Super">Super</option>
+                <option value="Asymmetry">Asymmetry</option>
+            </select>
+        </label>
+        <label for="starting" title="Please input the starting square. Leave blank (or put 0) to not enforce.">ⓘ Starting Square: 
+            <input type="number" name="starting" id="startingInput" value="0" min="0" max="20"/>
+        </label>
+        <label for="connected" title="Traditional crosswords are all one 'zone' - this enforces that interconnectedness.">ⓘ Enforce a connected grid: 
+            <input type="checkbox" name="connected" checked>
+        </label>
+        <label for="findAll" title="Continue the program after a solution has been found. CAUTION: may extend solve time significantly.">ⓘ Find every solution: 
+            <input type="checkbox" name="findAll" >
+        </label>
+        <button type="submit">Solve</button>
+    </form>
+</body>
+</html>
