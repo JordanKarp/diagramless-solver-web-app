@@ -80,7 +80,7 @@ class Puzzle:
                     else:
                         self.backtrack()
 
-            if self.solver_details.debug or self.squares_checked % DEFAULT_PRINT == 0:
+            if self.solver_details.debug:
                 self.debug_print()
         self.solutions.end_timer(self.squares_checked)
         return self.solutions
