@@ -29,9 +29,13 @@ table {
     text-align: center;
 }
 
+#content {
+    display: flex;
+    justify-content: space-evenly;
+}
 
 .verticalLine {
-    border-left: thick solid black;
+    border-left: 2px solid black;
 }
 
 #puzzleDetails ~ td {
