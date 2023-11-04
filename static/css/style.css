@@ -29,8 +29,8 @@ table {
     text-align: center;
 }
 
-.verticalLine {
-    border-left: 2px solid black;
+.submitButton {
+    width: 100%;
 }
 
 #puzzleDetails ~ td {
