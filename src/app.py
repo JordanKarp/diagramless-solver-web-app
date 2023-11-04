@@ -5,7 +5,7 @@ from solver.main import run
 
 app = Flask(__name__)
 
-PORT = os.getenv("PORT")
+PORT = os.getenv("PORT", default=5000)
 
 
 @app.route("/")
