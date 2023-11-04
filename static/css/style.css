@@ -12,6 +12,7 @@ body {
 
 button {
     margin: 5px 1rem;
+    padding: .5rem 2rem;
 }
 
 label {
@@ -21,6 +22,7 @@ label {
 table {
     margin: 0 1rem;
 }
+
 #puzzleDetails ~ td {
     font-size: 1.3rem;
     padding: 2px 8px;
@@ -39,7 +41,6 @@ table {
     background: white;
 }
 
-
 .sq {
     border: 1px solid black;
     border-collapse: collapse;
@@ -53,7 +54,6 @@ table {
     vertical-align: super;
     text-size-adjust: 60%;
 }
-
 
 #solutions {
     display: flex;
@@ -78,7 +78,7 @@ table {
     justify-content: center;
     align-items: center;
     background-color: rgba(0,0,0,0.4);
-    transform: opacity 0.75s, visibility 0.75s;
+    transform: opacity 2.75s, visibility 2.75s;
 }
 .loader-hidden {
     opacity: 0;
