@@ -31,7 +31,6 @@ class Puzzle:
         self.squares_checked = 0
 
     def solve(self):
-        print("Processing.")
         self.solutions.start_timer()
 
         self.implement_starting_squares()

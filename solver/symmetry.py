@@ -100,12 +100,6 @@ class UpDownSym(Symmetry):
         return [(self.rows - 1 - row_pointer, col_pointer)]
 
 
-# uds = UpDownSym((9,9))
-# pointer = (4,8)
-# print(uds.can_place(pointer))
-# print(uds.sym_pointer(pointer))
-
-
 class RotationalSym(Symmetry):
     """
     Also known as Standard Crossword Symmetry or 180˚ Rotational Symmetry,
@@ -236,7 +230,9 @@ class SuperSym(Symmetry):
 
     def can_place(self, pointer):
         row_pointer, col_pointer = pointer
-        if (row_pointer <= (self.rows - 1) / 2) and col_pointer <= (self.columns - 1) / 2:
+        if (row_pointer <= (self.rows - 1) / 2) and col_pointer <= (
+            self.columns - 1
+        ) / 2:
             return row_pointer <= col_pointer
         else:
             return False
