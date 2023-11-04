@@ -19,7 +19,7 @@
     <p>Of course you haven't, but this tool does just that - builds the grid for a diagramless crossword puzzle! Click the ⓘ in the top right for more information</p>
     <hr/>
 
-    <form action="/solve" method="post">
+    <form action="/solve" method="post" id="puzzleForm">
         <label for="rows" title="Number of rows in the puzzle">ⓘ Rows: 
             <input type="number" name="rows" id="rowInput" min="3" placeholder="5" required/>
         </label>
@@ -57,5 +57,15 @@
         </label>
         <button type="submit">Solve</button>
     </form>
+
+    <script>
+        const puzForm = document.getElementById('puzzleForm')
+        const body = document.getElementsByTagName('body');
+        puzForm.addEventListener('submit', ()=> {
+            const loaderElem = document.createElement('div')
+            loaderElem.classList.add('loader')
+            body.appendChild(loaderElem)
+        })
+     </script>
 </body>
 </html>
