@@ -68,6 +68,10 @@ table {
     box-shadow: 2px 2px;
 }
 
+.diagram {
+    width: 100vw;
+}
+
 .loader {
     position: fixed;
     top:0;
