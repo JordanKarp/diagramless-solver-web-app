@@ -18,10 +18,19 @@ label {
     display: block;
 }
 
+table {
+    margin: 0 1rem;
+}
+#puzzleDetails ~ td {
+    font-size: 1.3rem;
+    padding: 2px 8px;
+}
+
 .solution > p {
     padding: 0 1rem;
     margin: 0;
     font-size: 1.5rem;
+    text-align: center;
 }
 .solution > table {
     border-collapse: collapse;
