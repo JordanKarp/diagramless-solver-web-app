@@ -4,8 +4,10 @@ header {
     align-items: center;
 }
 body {
+
     max-width: 1280px;
     margin: 0 auto;
+    padding: 1rem;
 }
 
 
