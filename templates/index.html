@@ -57,14 +57,15 @@
         </label>
         <button type="submit">Solve</button>
     </form>
-
+    <div id="loader-container"></div>
     <script>
         const puzForm = document.getElementById('puzzleForm')
-        const body = document.getElementsByTagName('body');
+        const container = document.getElementById('loader-container');
         puzForm.addEventListener('submit', ()=> {
+            console.log('form submitted')
             const loaderElem = document.createElement('div')
             loaderElem.classList.add('loader')
-            body.appendChild(loaderElem)
+            container.appendChild(loaderElem)
         })
      </script>
 </body>
