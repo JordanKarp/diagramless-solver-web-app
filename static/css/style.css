@@ -29,6 +29,11 @@ table {
     text-align: center;
 }
 
+
+.verticalLine {
+    border-left: thick solid black;
+}
+
 #puzzleDetails ~ td {
     font-size: 1.3rem;
     padding: 2px 8px;
