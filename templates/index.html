@@ -17,16 +17,16 @@
 
     <form action="/solve" method="post">
         <label for="rows" title="Number of rows in the puzzle">ⓘ Rows: 
-            <input type="number" name="rows" id="rowInput" min="3" required/>
+            <input type="number" name="rows" id="rowInput" min="3" placeholder="" required/>
         </label>
         <label for="columns" title="Number of columns in the puzzle">ⓘ Columns: 
-            <input type="number" name="columns" id="columnInput" min="3" required/>
+            <input type="number" name="columns" id="columnInput" min="3" placeholder="1 4 5 ..."/>
         </label>
         <label for="acrossClues" title="List across clues separated by a space">ⓘ Across Clues: 
-            <input type="text" name="acrossClues" id="acrossInput" pattern="\d+ (?:\d+ )*\d+" required/>
+            <input type="text" name="acrossClues" id="acrossInput" pattern="\d+ (?:\d+ )*\d+"  placeholder="1 4 5 ..."required/>
         </label>
         <label for="downClues" title="List down clues separated by a space">ⓘ Down Clues: 
-            <input type="text" name="downClues" id="downInput" pattern="\d+ (?:\d+ )*\d+" required/>
+            <input type="text" name="downClues" id="downInput" pattern="\d+ (?:\d+ )*\d+" placeholder="1 2 3 ..." required/>
         </label>
         <label for="symmetry" title="Define the puzzle's symmetry">ⓘ Symmetry: 
             <select name="symmetry">
