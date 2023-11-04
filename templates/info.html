@@ -29,104 +29,108 @@
     <hr/>
     <h2>Diagramless Technical Breakdown</h2>
 
-    <p>At a basic level, the program through each square, placing the correct value (as determined by the exclusion table). If there are two possible values, the options will always be a black square or some other value. At this point the solver will mark a backtracking point, and continue on solving with the other value. This will proceed until there are no possible options, or the puzzle is correct. </p>
+    <p>At a basic level, the program through each square, placing the correct value, as determined by the exclusion table.</p>
+    <p>If there are two possible values, the options will always be a black square or some other value. At this point the solver will mark a backtracking point, and continue on solving with the other value. This will proceed until there are no possible options, or the puzzle is correct. </p>
     <p>The basic psuedocode is outlined below:
+    <ul>
+        <li>While still solving:</li>
         <ul>
-            <li>While still solving:</li>
+            <li>Increment to the next square.</li>
+            <li>If at the end of puzzle:</li>
             <ul>
-                <li>Increment to the next square.</li>
-                <li>If at the end of puzzle:</li>
+                <li>If correct, add solution.</li>
+                <li>If incorrect, backtrack to previous position.</li>
+            </ul>
+            <li>Check possibilities for current square.</li>
+            <li>If there are 0 options, backtrack to previous position.</li>
+            <li>If there are 2 options, mark a backtracking spot and keep going with other option.</li>
+            <li>If there is 1 option:</li>
+            <ul>
+                <li>If it's an empty or a black, place it.</li>
+                <li>If it's a clue:</li>
                 <ul>
-                    <li>If correct, add solution.</li>
-                    <li>If incorrect, backtrack to previous position.</li>
-                </ul>
-                <li>Check possibilities for current square.</li>
-                <li>If there are 0 options, backtrack to previous position.</li>
-                <li>If there are 2 options, mark a backtracking spot and keep going with other option.</li>
-                <li>If there is 1 option:</li>
-                <ul>
-                    <li>If it's an empty or a black, place it.</li>
-                    <li>If it's a clue:</li>
-                    <ul>
-                        <li>If it's correct, place it.</li>
-                        <li>If it's incorrect, backtrack.</li>
-                    </ul>
+                    <li>If it's correct, place it.</li>
+                    <li>If it's incorrect, backtrack.</li>
                 </ul>
             </ul>
         </ul>
-        <p>If the puzzles is searching for every solution, it will exit this loop only when there are no more backtracking spots. Otherwise it will exit after the first solution.
+    </ul>
+    <p>If the puzzles is searching for every solution, it will exit this loop only when there are no more backtracking spots. Otherwise it will exit after the first solution.
 
-        <h3>Exclusion Table</h3>
+    <h3>Exclusion Table</h3>
 
-        <p>The exclusion table is used to help determine which values are possible for a single square. It analyzes each of the square's neighbors, one at a time, and determines what is NOT possible for that specific configuration.</p>
-        <p>For example, if direcly above the pointer (U1) there is a black square, then it is impossible for the pointer to be an across clue or an empty square, based on the rules of crossword puzzles.</p>
+    <p>The exclusion table is used to help determine which values are possible for a single square. It analyzes each of the square's neighbors, one at a time, and determines what is NOT possible for that specific configuration.</p>
+    <p>For example, if direcly above the pointer there is a black square, then it is impossible for the pointer to be either an across clue or an empty square, based on the rules of crossword puzzles.</p>
 
-        <p>A point to note, this exclusion table ONLY looks at the pointer and that specific neighbor, one at a time. So if U2 is black, it does not check what U1 is when determining what is 'impossble'. Because of this, some of the values in this lookup table are empty, meaning that that configuration does not restrict the pointer's possible values.</p>
+    <p>A point to note, this exclusion table ONLY looks at the pointer and that specific neighbor, one at a time. So if Up 2 is black, it does not check what up 1 is when determining what is 'impossble'. Because of this, some of the values in this lookup table are empty, meaning that that configuration does not restrict the pointer's possible values.</p>
 
-        <p>The algorithm continues through every one of the possible pointer neighbors (Up 1, Up 2, Up 3, Down 1, Down 2, Down 3, Left 1, Left 2, Left 3, Right 1, Right 2, Right 3), building a set of impossible values for that square
+    <p>The algorithm continues through every one of the possible influential pointer neighbors (Up 1, Up 2, Up 3, Down 1, Down 2, Down 3, Left 1, Left 2, Left 3, Right 1, Right 2, Right 3), building a set of impossible values for that square.
 
-        <p>Some other restrictions are added to the square at this point:</p>
-        <ul>
-            <li>Prevent a full row of black squares.</li>
-            <li>Prevent a full column of black squares.</li>
-            <li>If symmetry is enforced and not in the 'can-place' zone, prevent a black square from being placed.</li>
-        </ul>
-        <p>Then the difference between these impossible values and all values results in only the possible values left.</p>
-        <p>The exclusion table is a bit of a misnomer, as it is actually a dictionary, but this was just done to decrease time complexity.</p>
+    <p>Some other restrictions are added to the square at this point:</p>
+    <ul>
+        <li>Prevent a full row of black squares.</li>
+        <li>Prevent a full column of black squares.</li>
+        <li>If symmetry is enforced and not in the 'can-place' zone, prevent a black square from being placed.</li>
+    </ul>
+    <p>Then the difference between these impossible values and all values results in only the possible values left.</p>
+    <p>The exclusion table is a bit of a misnomer, as it is actually a dictionary, but this was just done to decrease time complexity.</p>
 
-        <h3>Symmetry</h3>
+    <h3>Symmetry</h3>
 
-        <p>When symmetry is enforced, it tends to speed up the process signficantly. For each black square placed, the solver will be able to place one (or more) symmetrical black squares.<p>
+    <p>When symmetry is enforced, it tends to speed up the process signficantly. For each black square placed, the solver will be able to place one (or more) symmetrical black squares.<p>
+    <p>So in order to speed up the process during solving, for each type of symmetry we need to determine two different 'zones', one where we place black squares and one where ONLY symmetrically mirrored black squares are placed based on the first zone. If the pointer is in the 'can place' zone, then it will place a black square in that zone, and the corresponding black squares in the symetrical location(s).</p>
 
-        <p>So in order to speed up the process during solving, for each type of symmetry we need to determine two different 'zones', one where we place black squares and one where ONLY symmetrically mirrored squares are placed based on the first zone. If the pointer is in the 'can place' zone, then it will place a black square in that zone, and the corresponding black squares in the symetrical location(s).</p>
-
-        <p>This solver allows for a few different kinds of symmetry, laid out here:</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Type</th>
-                    <th>Explaination</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Rotational</td>
-                    <td>Also known as Standard Crossword Symmetry or 180˚ Rotational Symmetry, every white and black square has a counterpart by spinning a half turn about it's central point.</td>
-                </tr>
-                <tr>
-                    <td>Left Right</td>
-                    <td>Also known as mirror symmetry, every white and black square has a counterpart across the puzzle's central vertical axis.</td>
-                </tr>
-                <tr>
-                    <td>Up Down</td>
-                    <td>Every white and black square has a counterpart across the puzzle's central horizontal axis.</td>
-                </tr>
-                <tr>
-                    <td>Diagonal - Top Left Start</td>
-                    <td>Every white and black square has a mirror counterpart across the puzzle's diagonal axis, from the top left to the bottom right.</td>
-                </tr>
-                <tr>
-                    <td>Diagonal - Top Right Start</td>
-                    <td>Every white and black square has a mirror counterpart across the puzzle's diagonal axis, from the top right to the bottom left.</td>
-                </tr>
-                <tr>
-                    <td>Dual Rotational</td>
-                    <td>Building on Rotational Symmetry, every white and black square has counterparts by spinning a quarter turn, a half turn, and a three quarter turn about it's central point.</td>
-                </tr>
-                <tr>
-                    <td>Three Way</td>
-                    <td>Left Right, Up Down and Rotational Symmetries, all combined. With the exception of the central row and column, every white and black square has three symmetrical counterparts.</td>
-                </tr>
-                <tr>
-                    <td>Super</td>
-                    <td>Left Right, Up Down, Rotational, Dual Rotational and both Diagonal Symmetries, all combined.</td>
-                </tr>
-                <tr>
-                    <td>Asymmetry</td>
-                    <td>No Symmetry.</td>
-                </tr>
-            </tbody>
-        </table>
+    <p>This solver allows for a few different kinds of symmetry, laid out here:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Explaination</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Rotational</td>
+                <td>Also known as Standard Crossword Symmetry or 180˚ Rotational Symmetry, every white and black square has a counterpart by spinning a half turn about it's central point.</td>
+            </tr>
+            <tr>
+                <td>Left Right</td>
+                <td>Also known as mirror symmetry, every white and black square has a counterpart across the puzzle's central vertical axis.</td>
+            </tr>
+            <tr>
+                <td>Up Down</td>
+                <td>Every white and black square has a counterpart across the puzzle's central horizontal axis.</td>
+            </tr>
+            <tr>
+                <td>Diagonal - Top Left Start</td>
+                <td>Every white and black square has a mirror counterpart across the puzzle's diagonal axis, from the top left to the bottom right.</td>
+            </tr>
+            <tr>
+                <td>Diagonal - Top Right Start</td>
+                <td>Every white and black square has a mirror counterpart across the puzzle's diagonal axis, from the top right to the bottom left.</td>
+            </tr>
+            <tr>
+                <td>Dual Rotational</td>
+                <td>Building on Rotational Symmetry, every white and black square has counterparts by spinning a quarter turn, a half turn, and a three quarter turn about it's central point.</td>
+            </tr>
+            <tr>
+                <td>Three Way</td>
+                <td>Left Right, Up Down and Rotational Symmetries, all combined. With the exception of the central row and column, every white and black square has three symmetrical counterparts.</td>
+            </tr>
+            <tr>
+                <td>Super</td>
+                <td>Left Right, Up Down, Rotational, Dual Rotational and both Diagonal Symmetries, all combined.</td>
+            </tr>
+            <tr>
+                <td>Asymmetry</td>
+                <td>No Symmetry.</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Feedback</h3>
+    <p>I'</p>
+    <p>Please reach out if you have any questions, comments, or suggestions!</p>
+    <p>Jordan Karp - jordanmatthew.karp@gmail.com</p>
     <embed src="../static/diagramless_diagram.pdf" width="800px" height="2100px" />
 
 
