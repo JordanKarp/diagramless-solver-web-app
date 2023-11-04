@@ -10,15 +10,24 @@ body {
     padding: 1rem;
 }
 
+button {
+    margin: 5px 1rem;
+}
 
 label {
     display: block;
 }
 
+.solution > p {
+    padding: 0 1rem;
+    margin: 0;
+    font-size: 1.5rem;
+}
 .solution > table {
     border-collapse: collapse;
     border: 1px solid black;
     margin: 10px;
+    background: white;
 }
 
 
@@ -44,4 +53,8 @@ label {
 
 .solution {
     margin: 10px;
+    padding: 0.5rem;
+    background: rgba(0,0,0,0.1);
+    border-radius: 16px;
+    box-shadow: 2px 2px;
 }

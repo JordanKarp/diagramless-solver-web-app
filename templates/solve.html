@@ -23,11 +23,11 @@
             </tr>
             <tr>
                 <td>Across clues:</td>
-                <td>{{ puzzle.get('acrossClues').replace(' ', ', ') }}</td>
+                <td>{{ puzzle.get('acrossClues') }}</td>
             </tr>
             <tr>
                 <td>Down clues:</td>
-                <td>{{ puzzle.get('downClues').replace(' ', ', ') }}</td>
+                <td>{{ puzzle.get('downClues') }}</td>
             </tr>
             <tr>
                 <td>Symmetry:</td>
@@ -69,7 +69,7 @@
     <div id="solutions">
         {% for sol in solutions %}
         <div class="solution">
-            <p>{{ loop.index }}: </p>
+            <p>Solution {{ loop.index }}</p>
             <table>
                 <tbody>
                     <tr>
