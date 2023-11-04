@@ -11,7 +11,7 @@
 <body>
     <header>
         <a href='/'><box-icon type='solid' name='home'></box-icon></a>
-        <h1>Diagramless Crossword Solver</h1>
+        <h1 id="title">Diagramless Crossword Solver</h1>
         <a href='/info'><box-icon name='info-circle' type='solid' ></box-icon></a>
     </header>
     <hr/>
@@ -32,7 +32,7 @@
 
     <p>At a basic level, the program through each square, placing the correct value, as determined by the exclusion table.</p>
     <p>If there are two possible values, the options will always be a black square or some other value. At this point the solver will mark a backtracking point, and continue on solving with the other value. This will proceed until there are no possible options, or the puzzle is correct. </p>
-    <p>The basic psuedocode is outlined below:
+    <p>The basic psuedocode is outlined below and a visual representation can be found further down:
     <ul>
         <li>While still solving:</li>
         <ul>
@@ -129,9 +129,10 @@
         </tbody>
     </table>
     <img id="diagram" src="../static/img/diagram.png" alt="A diagram of the pseudocode for this project" />
-    <h3>Feedback</h3>
-    <p>Please reach out if you have any questions, comments, or suggestions!</p>
-    <p>Jordan Karp - jordanmatthew.karp@gmail.com</p>
 
+    <hr/>
+    <h3>Feedback</h3>
+    <p>This is still a work in progress so please reach out if you have any questions, comments, or suggestions!</p>
+    <p>Jordan Karp - jordanmatthew.karp@gmail.com</p>
 </body>
 </html>
