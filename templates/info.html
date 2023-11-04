@@ -15,23 +15,23 @@
     </header>
     <hr/>
     <h2>Diagramless Puzzle Info</h2>
-    <p>A diagramless crossword puzzle is similar to a (American-style) crossword puzzle and follows all the same rules. However the locations of the clue numbers and shaded (BLACK) squares are unspecified. Essentially, you're provided a blank grid and clues.</p>
+    <p>A diagramless crossword puzzle is similar to a (American-style) crossword puzzle and follows all the same rules. However the locations of the clue numbers and shaded (BLACK) squares are unspecified. Essentially, you're provided only a blank grid and clues.</p>
     <p>A human diagramless crossword solver must deduce two things:</p>
     <ol>
         <li>The word answers to individual clues.</li>
         <li>The locations to the specific clue numbers, shaded (BLACK) squares, and empty squares.</li>
     </ol>
     <p>This builder tackles ONLY the second part, without considering clues or clue answers whatsoever, in order to build the entire crossword grid</p>
-    <p>It will soley look at the clue numbers and whether they are an Across (A) clue, a Down (D) clue, or both (Z)</p>
+    <p>It will soley look at the clue numbers and whether they are an across clue, a down clue, or both.</p>
 
-    <p>Diagramless crossword puzzles tend to give some hints, which can be added as parameters: - Does the puzzle have symmetry? - What is the starting location of the first clue?</p>
-    <p>This program can take these inputs, and return all possible grid solutions for the given puzzle.</p>
+    <p>Diagramless crossword puzzles also tend to give some hints, which can be added here as parameters. These include symmetry (and the different types thereof) and where is the 'starting square' of the puzzle.</p>
+    <p>This program can take these inputs, and return ALL possible grid solutions for the given puzzle.</p>
 
 
     <h2>Diagramless Technical Breakdown</h2>
 
-    <p>At a basic level, the program through each square, placing the correct value (as determined by the exclusion table). If there are two possible values, it will always be a black square and some other value. At this point the solver will mark a backtracking point, and continue on solving with the other value. This will proceed until there are no possible options, or the puzzle is correct. </p>
-    <p>The basic psuedocode within Puzzle.solve() is outlined below:
+    <p>At a basic level, the program through each square, placing the correct value (as determined by the exclusion table). If there are two possible values, the options will always be a black square or some other value. At this point the solver will mark a backtracking point, and continue on solving with the other value. This will proceed until there are no possible options, or the puzzle is correct. </p>
+    <p>The basic psuedocode is outlined below:
         <ul>
             <li>While still solving:</li>
             <ul>
