@@ -15,6 +15,10 @@ body {
     padding: 1rem;
 }
 
+#formSubmitBtn {
+    width: 50%;
+}
+
 button {
     margin: 5px 1rem;
     padding: .5rem;

@@ -32,14 +32,7 @@ class Solutions:
         self.list.append(entry)
 
     def return_grids(self):
-        solutions = []
-        # for num, (puz, debug_counter, elapsed_time) in enumerate(self.list, 1):
-        #     text = f"{num}: {elapsed_time} seconds" + "\n"
-        #     text += f"{debug_counter:,} squares checked." + "\n"
-        #     text += f"{puz}" + "\n"
-        for puz, _, _ in self.list:
-            solutions.append(puz.strip())
-        return solutions
+        return [puz.strip() for puz, _, _ in self.list]
 
     def print_solutions(self):
         clear_terminal()
