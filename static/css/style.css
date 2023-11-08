@@ -15,7 +15,7 @@ body {
 }
 
 body > img {
-    opacity: .1;
+    opacity: .05;
     position: absolute;
     left: 0;
     top: 0; 
