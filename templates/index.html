@@ -20,66 +20,68 @@
     <p>Of course you haven't, but this tool does just that - builds the grid for a diagramless crossword puzzle! Click the ⓘ in the top right for more information</p>
     <hr/>
     <div id="content">
-        <div class="inputOption" id="form">
-            <h4>Input puzzle info here:</h4>
-            <form action="/solve" method="post" id="puzzleForm">
-                <label for="rows" title="Number of rows in the puzzle">ⓘ Rows: 
-                    <input type="number" name="rows" id="rowInput" min="3" placeholder="5" required/>
-                </label>
-                <label for="columns" title="Number of columns in the puzzle">ⓘ Columns: 
-                    <input type="number" name="columns" id="columnInput" min="3" placeholder="5"/>
-                </label>
-                <label for="acrossClues" title="List across clues separated by a space">ⓘ Across Clues: 
-                    <input type="text" name="acrossClues" id="acrossInput" size='50' pattern="\d+ (?:\d+ )*\d+"  placeholder="1 4 5 8 9"required/>
-                </label>
-                <label for="downClues" title="List down clues separated by a space">ⓘ Down Clues: 
-                    <input type="text" name="downClues" id="downInput" size='50' pattern="\d+ (?:\d+ )*\d+" placeholder="1 2 3 6 7" required/>
-                </label>
-                <label for="symmetry" title="Define the puzzle's symmetry">ⓘ Symmetry: 
-                    <select name="symmetry" id="symmetryInput">
-                        <option value="None" selected>None enforced</option>
-                        <option value="Rotational">Rotational</option>
-                        <option value="Left Right">Left Right</option>
-                        <option value="Up Down">Up Down</option>
-                        <option value="Dual Rotational">Dual Rotational</option>
-                        <option value="Three Way">Three Way</option>
-                        <option value="Diagonal TLBR">Diagonal Top Left Start</option>
-                        <option value="Diagonal TRBL">Diagonal Top Right Start</option>
-                        <option value="Super">Super</option>
-                        <option value="Asymmetry">Asymmetry</option>
-                    </select>
-                </label>
-                <label for="starting" title="Please input the starting square. Leave blank (or put 0) to not enforce.">ⓘ Starting Square: 
-                    <input type="number" name="starting" id="startingInput" value="0" min="0" max="20" inputmode="numeric"/>
-                </label>
-                <label for="connected" title="Traditional crosswords are all one 'zone' - this enforces that interconnectedness.">ⓘ Enforce a connected grid: 
-                    <input type="checkbox" name="connected" id="connectedInput" checked>
-                </label>
-                <label for="findAll" title="Continue the program after a solution has been found. CAUTION: may extend solve time significantly.">ⓘ Find every solution: 
-                    <input type="checkbox" name="findAll" id="findAllInput" >
-                </label>
-            </form>
-        </div>
-        <div class="verticalLine"></div>
-        <div class="inputOption">
-            <h4>Or choose one of the given puzzles here:</h4>
-            <div id="prefilledButtons"> 
-                <button type="button" onclick="fillPuzzle('5','5','1 4 5 8 9', '1 2 3 6 7', 'Asymmetry', '1', true, true)">5x5 - Rotational - 1</button>
-                <button type="button" onclick="fillPuzzle('9','9','1 4 7 8 9 10 11 12 13 14 15 17 18 20 21', '1 2 3 4 5 6 16 17 19', 'Left Right', '1', true, true)">9x9 - Left Right - 1</button>
-                <button type="button" onclick="fillPuzzle('9','9','1 4 6 7 8 9 13 14 16 17 18 19', '1 2 3 4 5 9 10 11 12 13 15', 'Left Right', '4', true, true)">9x9 - Left Right - 4</button>
-                <button type="button" onclick="fillPuzzle('9','9','1 4 7 8 9 10 11 12 13 17 18 19 20', '1 2 3 4 5 6 14 15 16', 'Left Right', '0', true, false)">9x9 - Left Right - 0</button>
-                <button type="button" onclick="fillPuzzle('9','9','1 8 9 10 11 15 17 20 21', '1 2 3 4 5 6 7 8 12 13 14 16 17 18 19', 'Rotational', '2', true, true)">9x9 - Rotational - 2</button>
-                <button type="button" onclick="fillPuzzle('9','9','1 4 5 9 11 13 15 16 18 19 21 22', '1 2 3 6 7 8 9 10 12 14 17 20', 'Rotational', '3', true, false)">9x9 - Rotational - 3</button>
-                <button type="button" onclick="fillPuzzle('9','9','1 4 6 8 11 13 14 15 17 18 20 21', '1 2 3 5 7 8 9 10 12 16 19', 'Up Down', '4', true, true)">9x9 - Up Down - 4</button>
-                <button type="button" onclick="fillPuzzle('9','9','1 4 6 9 10 11 12 14 16 17 19 20', '1 2 3 4 5 6 7 8 13 15 16 18', 'Dual Rotational', '5', true, false)">9x9 - Dual Rotational - 5</button>
-                <button type="button" onclick="fillPuzzle('9','9','1 4 7 9 10 11 12 14 15 21 22 23 24 25 26', '1 2 3 4 5 6 8 9 13 15 16 17 18 19 20', 'Three Way', '1', true, false)">9x9 - Three Way - 1</button>
-                <button type="button" onclick="fillPuzzle('9','9','1 4 7 8 9 11 12 14 15 17 19 22 23 24 25', '1 2 3 4 5 6 10 11 13 15 16 17 18 20 21', 'Super', '0', true, true)">9x9 - Super - 0</button>
-                <button type="button" onclick="fillPuzzle('15','15','1 6 10 13 14 15 16 17 18 19 21 23 25 26 30 31 32 34 37 38 39 40 41 42 43 44 47 51 52 54 58 59 61 62 63 64 65 66 67', '1 2 3 4 5 6 7 8 9 10 11 12 15 20 22 24 26 27 28 29 33 34 35 36 38 39 41 43 45 46 47 48 49 50 53 55 56 57 60', 'Rotational', '1', true, false)">15x15 - Rotational - 1</button>
-                <button type="button" onclick="fillPuzzle('17','17','1 6 11 16 17 18 19 20 21 22 24 26 27 28 29 30 31 33 34 35 37 40 41 42 43 45 47 51 52 54 55 56 61 62 63 64 66 68 69 70 71', '1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 23 25 30 32 35 36 38 39 40 44 46 48 49 50 51 53 55 57 58 59 60 65 67', 'Left Right', '1', true, false)">17x17 - Left Right - 1</button>
+        <div id="options">
+            <div class="inputOption" id="form">
+                <h4>Input puzzle info here:</h4>
+                <form action="/solve" method="post" id="puzzleForm">
+                    <label for="rows" title="Number of rows in the puzzle">ⓘ Rows: 
+                        <input type="number" name="rows" id="rowInput" min="3" placeholder="5" required/>
+                    </label>
+                    <label for="columns" title="Number of columns in the puzzle">ⓘ Columns: 
+                        <input type="number" name="columns" id="columnInput" min="3" placeholder="5"/>
+                    </label>
+                    <label for="acrossClues" title="List across clues separated by a space">ⓘ Across Clues: 
+                        <input type="text" name="acrossClues" id="acrossInput" size='50' pattern="\d+ (?:\d+ )*\d+"  placeholder="1 4 5 8 9"required/>
+                    </label>
+                    <label for="downClues" title="List down clues separated by a space">ⓘ Down Clues: 
+                        <input type="text" name="downClues" id="downInput" size='50' pattern="\d+ (?:\d+ )*\d+" placeholder="1 2 3 6 7" required/>
+                    </label>
+                    <label for="symmetry" title="Define the puzzle's symmetry">ⓘ Symmetry: 
+                        <select name="symmetry" id="symmetryInput">
+                            <option value="None" selected>None enforced</option>
+                            <option value="Rotational">Rotational</option>
+                            <option value="Left Right">Left Right</option>
+                            <option value="Up Down">Up Down</option>
+                            <option value="Dual Rotational">Dual Rotational</option>
+                            <option value="Three Way">Three Way</option>
+                            <option value="Diagonal TLBR">Diagonal Top Left Start</option>
+                            <option value="Diagonal TRBL">Diagonal Top Right Start</option>
+                            <option value="Super">Super</option>
+                            <option value="Asymmetry">Asymmetry</option>
+                        </select>
+                    </label>
+                    <label for="starting" title="Please input the starting square. Leave blank (or put 0) to not enforce.">ⓘ Starting Square: 
+                        <input type="number" name="starting" id="startingInput" value="0" min="0" max="20" inputmode="numeric"/>
+                    </label>
+                    <label for="connected" title="Traditional crosswords are all one 'zone' - this enforces that interconnectedness.">ⓘ Enforce a connected grid: 
+                        <input type="checkbox" name="connected" id="connectedInput" checked>
+                    </label>
+                    <label for="findAll" title="Continue the program after a solution has been found. CAUTION: may extend solve time significantly.">ⓘ Find every solution: 
+                        <input type="checkbox" name="findAll" id="findAllInput" >
+                    </label>
+                </form>
+            </div>
+            <div class="verticalLine"></div>
+            <div class="inputOption">
+                <h4>Or choose one of the given puzzles here:</h4>
+                <div id="prefilledButtons"> 
+                    <button type="button" onclick="fillPuzzle('5','5','1 4 5 8 9', '1 2 3 6 7', 'Asymmetry', '1', true, true)">5x5 - Rotational - 1</button>
+                    <button type="button" onclick="fillPuzzle('9','9','1 4 7 8 9 10 11 12 13 14 15 17 18 20 21', '1 2 3 4 5 6 16 17 19', 'Left Right', '1', true, true)">9x9 - Left Right - 1</button>
+                    <button type="button" onclick="fillPuzzle('9','9','1 4 6 7 8 9 13 14 16 17 18 19', '1 2 3 4 5 9 10 11 12 13 15', 'Left Right', '4', true, true)">9x9 - Left Right - 4</button>
+                    <button type="button" onclick="fillPuzzle('9','9','1 4 7 8 9 10 11 12 13 17 18 19 20', '1 2 3 4 5 6 14 15 16', 'Left Right', '0', true, false)">9x9 - Left Right - 0</button>
+                    <button type="button" onclick="fillPuzzle('9','9','1 8 9 10 11 15 17 20 21', '1 2 3 4 5 6 7 8 12 13 14 16 17 18 19', 'Rotational', '2', true, true)">9x9 - Rotational - 2</button>
+                    <button type="button" onclick="fillPuzzle('9','9','1 4 5 9 11 13 15 16 18 19 21 22', '1 2 3 6 7 8 9 10 12 14 17 20', 'Rotational', '3', true, false)">9x9 - Rotational - 3</button>
+                    <button type="button" onclick="fillPuzzle('9','9','1 4 6 8 11 13 14 15 17 18 20 21', '1 2 3 5 7 8 9 10 12 16 19', 'Up Down', '4', true, true)">9x9 - Up Down - 4</button>
+                    <button type="button" onclick="fillPuzzle('9','9','1 4 6 9 10 11 12 14 16 17 19 20', '1 2 3 4 5 6 7 8 13 15 16 18', 'Dual Rotational', '5', true, false)">9x9 - Dual Rotational - 5</button>
+                    <button type="button" onclick="fillPuzzle('9','9','1 4 7 9 10 11 12 14 15 21 22 23 24 25 26', '1 2 3 4 5 6 8 9 13 15 16 17 18 19 20', 'Three Way', '1', true, false)">9x9 - Three Way - 1</button>
+                    <button type="button" onclick="fillPuzzle('9','9','1 4 7 8 9 11 12 14 15 17 19 22 23 24 25', '1 2 3 4 5 6 10 11 13 15 16 17 18 20 21', 'Super', '0', true, true)">9x9 - Super - 0</button>
+                    <button type="button" onclick="fillPuzzle('15','15','1 6 10 13 14 15 16 17 18 19 21 23 25 26 30 31 32 34 37 38 39 40 41 42 43 44 47 51 52 54 58 59 61 62 63 64 65 66 67', '1 2 3 4 5 6 7 8 9 10 11 12 15 20 22 24 26 27 28 29 33 34 35 36 38 39 41 43 45 46 47 48 49 50 53 55 56 57 60', 'Rotational', '1', true, false)">15x15 - Rotational - 1</button>
+                    <button type="button" onclick="fillPuzzle('17','17','1 6 11 16 17 18 19 20 21 22 24 26 27 28 29 30 31 33 34 35 37 40 41 42 43 45 47 51 52 54 55 56 61 62 63 64 66 68 69 70 71', '1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 23 25 30 32 35 36 38 39 40 44 46 48 49 50 51 53 55 57 58 59 60 65 67', 'Left Right', '1', true, false)">17x17 - Left Right - 1</button>
+                </div>
             </div>
         </div>
+        <button type="submit" form="puzzleForm" class="submitButton">Solve</button>
     </div>
-    <button type="submit" form="puzzleForm" class="submitButton">Solve</button>
     <div id="loader-container"></div>
 
     <script>
