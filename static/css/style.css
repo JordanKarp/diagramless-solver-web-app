@@ -15,6 +15,11 @@ body {
 }
 
 
+.content {
+    display: flex;
+    
+}
+
 
 button {
     margin: 5px 1rem;
@@ -32,16 +37,16 @@ table {
     text-align: center;
 }
 
-.submitButton {
-    width: 100%;
-}
-
 
 .inputOption {
-    background-color: #eee;
+    background-color: rgba(0,0,0,0.1);
     border-radius: 20px;
     width: fit-content;
     padding: 0.5rem 1rem;
+    margin: 10px;
+}
+.verticalLine {
+    border-left: 2px solid black;
 }
 
 #puzzleForm {
@@ -51,6 +56,7 @@ table {
 
 #prefilledButtons {
     display: flex;
+    flex-wrap: wrap;
 }
 
 #puzzleDetails ~ td {
