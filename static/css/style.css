@@ -40,6 +40,12 @@ button {
     background-color: rgb(200,200,200);
     border-radius: 16px;
     box-shadow: 2px 2px;
+    border: none;
+    transition: all 0.3s;
+}
+.submitButton:hover {
+    color: #fff;
+    background-color: rgb(50,50,50);
 }
 
 
