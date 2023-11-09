@@ -15,7 +15,7 @@ body {
 }
 
 
-.content {
+#content {
     display: flex;
     
 }
@@ -25,6 +25,11 @@ button {
     margin: 5px 1rem;
     padding: .5rem;
 }
+
+.submitButton {
+    width: 100%;
+}
+
 
 
 table {
