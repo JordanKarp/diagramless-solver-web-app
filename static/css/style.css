@@ -71,6 +71,7 @@ table {
 #prefilledButtons {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 #puzzleDetails ~ td {
