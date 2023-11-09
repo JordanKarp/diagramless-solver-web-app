@@ -51,7 +51,7 @@ table {
 }
 
 .inputOption {
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgb(200,200,200);
     border-radius: 20px;
     width: fit-content;
     padding: 0.5rem 1rem;
@@ -111,7 +111,7 @@ table {
 .solution {
     margin: 10px;
     padding: 0.5rem;
-    background: rgba(0,0,0,0.1);
+    background: rgb(200,200,200);
     border-radius: 16px;
     box-shadow: 2px 2px;
 }
