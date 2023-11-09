@@ -10,6 +10,7 @@ header {
 body {
     max-width: 1280px;
     width: 100vw;
+    height: fit-content;
     margin: 0 auto;
     padding: 1rem;
 }
@@ -135,7 +136,8 @@ table {
     position:absolute;
     width: 100%;
     height: 100%;
-    background:url("../static/img/puz.png") repeat scroll 0% 0%;
+    background-image :url("../static/img/puz.png");
+    background-repeat: repeat;
     opacity: .03;
 }
 
