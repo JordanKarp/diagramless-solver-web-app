@@ -14,7 +14,7 @@ body {
     padding: 1rem;
 }
 
-body > img {
+/* body > img {
     opacity: .05;
     position: absolute;
     left: 0;
@@ -23,7 +23,7 @@ body > img {
     height: 100%;
     z-index: -50;
     background-repeat: repeat;
-  }
+  } */
 
 #formSubmitBtn {
     width: 50%;
@@ -34,9 +34,6 @@ button {
     padding: .5rem;
 }
 
-label {
-    display: block;
-}
 
 table {
     margin: 0 1rem;
@@ -50,6 +47,19 @@ table {
 
 .submitButton {
     width: 100%;
+}
+
+
+#form {
+    background-color: #eee;
+    border-radius: 20px;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+}
+
+#puzzleForm {
+    display: flex;
+    flex-direction: column;
 }
 
 #puzzleDetails ~ td {
