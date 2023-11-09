@@ -120,7 +120,7 @@ table {
     width: 100vw;
 }
 
-#bkgImg {
+.bkgImg {
     position: absolute;
     left:0;
     top:0;
