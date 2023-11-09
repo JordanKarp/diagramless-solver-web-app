@@ -146,6 +146,17 @@ table {
     animation: loading 0.75s ease infinite;
 }
 
+@media screen and (max-width: 700px) {
+    #options {
+        display:flex;
+        flex-wrap: wrap;
+    }
+    .verticalLine {
+        display: none;
+    }
+
+}
+
 @keyframes loading {
     from {
         transform: rotate(0turn);
