@@ -38,6 +38,8 @@ button {
 .submitButton {
     width: 80%;
     background-color: rgb(200,200,200);
+    border-radius: 16px;
+    box-shadow: 2px 2px;
 }
 
 
@@ -54,10 +56,11 @@ table {
 
 .inputOption {
     background-color: rgb(200,200,200);
-    border-radius: 20px;
     width: fit-content;
     padding: 0.5rem 1rem;
     margin: 10px;
+    border-radius: 16px;
+    box-shadow: 2px 2px;
 }
 .verticalLine {
     border-left: 2px solid black;
