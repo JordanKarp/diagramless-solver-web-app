@@ -19,6 +19,10 @@ header > a:hover {
     color: black;
 }
 
+p, li {
+    font-size: 1.2rem;
+}
+
 /* body {
     max-width: 1280px;
     width: 100vw;
