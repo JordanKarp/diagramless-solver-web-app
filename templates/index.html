@@ -22,7 +22,7 @@
     <div id="content">
         <div id="options">
             <div class="inputOption" id="form">
-                <h4>Input puzzle info here:</h4>
+                <h2>Input puzzle info here:</h4>
                 <form action="/solve" method="post" id="puzzleForm">
                     <label for="rows" title="Number of rows in the puzzle">ⓘ Rows: 
                         <input type="number" name="rows" id="rowInput" min="3" placeholder="5" required/>
@@ -63,7 +63,7 @@
             </div>
             <div class="verticalLine"></div>
             <div class="inputOption">
-                <h4>Or choose one of the given puzzles here:</h4>
+                <h2>Or choose one of the given puzzles here:</h4>
                 <div id="prefilledButtons"> 
                     <button type="button" onclick="fillPuzzle('5','5','1 4 5 8 9', '1 2 3 6 7', 'Asymmetry', '1', true, false)">5x5 - Asymmetry - 1</button>
                     <button type="button" onclick="fillPuzzle('9','9','1 4 7 8 9 10 11 12 13 14 15 17 18 20 21', '1 2 3 4 5 6 16 17 19', 'Left Right', '1', true, false)">9x9 - Left Right - 1</button>
