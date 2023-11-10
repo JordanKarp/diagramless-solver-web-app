@@ -9,12 +9,12 @@ header {
     align-items: center;
 }
 
-header ~ box-icon {
+header ~ i {
     transition: all 0.3s;
     color: rgb(100,100,100);
 }
 
-header ~ box-icon:hover {
+header ~ i:hover {
     color: black;
 }
 
