@@ -8,6 +8,15 @@ header {
     align-items: center;
 }
 
+header > a {
+    transition: all 0.3s;
+    color: rgb(100,100,100);
+}
+
+header > a:hover {
+    color: black;
+}
+
 /* body {
     max-width: 1280px;
     width: 100vw;
