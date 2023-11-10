@@ -9,15 +9,6 @@ header {
     align-items: center;
 }
 
-header ~ i {
-    transition: all 0.3s;
-    color: rgb(100,100,100);
-}
-
-header ~ i:hover {
-    color: black;
-}
-
 p, li {
     font-size: 1.2rem;
 }
@@ -25,16 +16,6 @@ p {
     margin: .3rem 0;
     padding: 0.3rem;
 }
-
-
-
-/* body {
-    max-width: 1280px;
-    width: 100vw;
-    height: fit-content;
-    margin: 0 auto;
-    padding: 1rem;
-} */
 
 .content-grid,
 .full-width {
