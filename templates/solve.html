@@ -70,8 +70,10 @@
     <div id="solutions">
         {% for sol in solutions %}
         <div class="solution">
-            <p>Solution {{ loop.index }}</p>
-            <box-icon type='solid' name='printer'></box-icon>
+            <div class="solHead">
+                <p>Solution {{ loop.index }}</p>
+                <a href="/print"><box-icon type='solid' name='printer'></box-icon></a>
+            </div>
             <table>
                 <tbody>
                     <tr>
