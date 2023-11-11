@@ -40,7 +40,7 @@ def solve():
     return render_template("solve.html", puzzle=form_data, solutions=solutions)
 
 
-@app.route("/print", methods=["GET"])
+@app.route("/print")
 def print():
     # puzzle = session.get('puzzle', None)
     # solutions = session.get('solutions', None)

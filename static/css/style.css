@@ -127,6 +127,12 @@ table {
     padding: 2px 8px;
 }
 
+.solHead {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .solution > p {
     padding: 0 1rem;
     margin: 0;
