@@ -4,11 +4,11 @@ from solver.converter import process_cluestring
 from solver.value import SYMMETRIES
 
 
-def run(rows, columns, acrossClues, downClues, symmetry, starting, connected, findAll):
+def run(rows, columns, acc, down, symmetry, starting, connected, findAll):
     try:
         dimensions = (int(rows), int(columns))
-        acrossClueNumbers = [int(x) for x in acrossClues.split(" ")]
-        downClueNumbers = [int(x) for x in downClues.split(" ")]
+        acrossClueNumbers = [int(x) for x in acc.split(" ")]
+        downClueNumbers = [int(x) for x in down.split(" ")]
         cluestring = process_cluestring(acrossClueNumbers, downClueNumbers)
         symmetryFormatted = SYMMETRIES[symmetry]
         startingSquare = int(starting)

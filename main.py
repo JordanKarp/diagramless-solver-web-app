@@ -24,18 +24,30 @@ def solve():
     # Retrieve user inputs from the form
     rows = form_data.get("rows")
     columns = form_data.get("columns")
-    acrossClues = form_data.get("acrossClues")
-    downClues = form_data.get("downClues")
+    aClues = form_data.get("acrossClues")
+    dClues = form_data.get("downClues")
     symmetry = form_data.get("symmetry")
     starting = form_data.get("starting")
     connected = form_data.get("connected") == "on"
     findAll = form_data.get("findAll") == "on"
 
     solutions = run(
-        rows, columns, acrossClues, downClues, symmetry, starting, connected, findAll
+        rows, columns, aClues, dClues, symmetry, starting, connected, findAll
     )
+    # session["puzzle"] = form_data
+    # session["solutions"] = solutions
 
     return render_template("solve.html", puzzle=form_data, solutions=solutions)
+
+
+@app.route("/print", methods=["GET"])
+def print():
+    # puzzle = session.get('puzzle', None)
+    # solutions = session.get('solutions', None)
+
+    # return render_template("print.html", puzzle=puzzle, solutions=solutions)
+    print(request.values)
+    render_template("print.html")
 
 
 if __name__ == "__main__":
