@@ -19,26 +19,25 @@
     <h2>No puzzle found</h2>
 
     {% else %}
-    <div id="puzzleDetails">
-        <table>
-            <tr>
-                <th>Across clues:</th>
-            </tr>
-            {% for num in puzzle.get('acrossClues').split(' ') %}
-            <tr>
-                <td>{ num }</td>
-            </tr>
-            {% endfor %}
-            <tr>
-                <th>Down clues:</th>
-            </tr>
-            {% for num in puzzle.get('downClues').split(' ') %}
-            <tr>
-                <td>{ num }</td>
-            </tr>
-            {% endfor %}
+    <table>
+        <tr>
+            <th>Across clues:</th>
+        </tr>
+        {% for num in puzzle.get('acrossClues').split(' ') %}
+        <tr>
+            <td> {% num %}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <th>Down clues:</th>
+        </tr>
+        {% for num in puzzle.get('downClues').split(' ') %}
+        <tr>
+            <td>{% num %}</td>
+        </tr>
+        {% endfor %}
 
-    </div>
+    </table>
     {% endif %}
 
     {% if not solutions %}
