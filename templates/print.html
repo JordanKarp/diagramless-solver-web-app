@@ -15,7 +15,10 @@
         <a href='/info'><box-icon name='info-circle' type='solid' animation='tada-hover'></box-icon></a>
     </header>
     <hr/>
-<!--     
+    {% if not puzzle %}
+    <h2>No puzzle found</h2>
+
+    {% else %}
     <div id="puzzleDetails">
         <table>
             <tr>
@@ -36,6 +39,7 @@
             {% endfor %}
 
     </div>
+    {% endif %}
 
     {% if not solutions %}
     <h2>No solutions found</h2>
@@ -69,6 +73,6 @@
         </div>
         {% endfor %}
     </div>
-    {% endif %} -->
+    {% endif %}
 </body>
 </html>
