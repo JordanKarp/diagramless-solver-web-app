@@ -47,7 +47,7 @@ def print():
 
     # return render_template("print.html", puzzle=puzzle, solutions=solutions)
     # print(request.values)
-    render_template("print.html")
+    return render_template("print.html")
 
 
 if __name__ == "__main__":
