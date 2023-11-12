@@ -25,7 +25,7 @@
         </tr>
         {% for num in puzzle.get('acrossClues').split(' ') %}
         <tr>
-            <td> {% num %}. </td>
+            <td> {{ num }}. </td>
         </tr>
         {% endfor %}
         <tr>
@@ -33,7 +33,7 @@
         </tr>
         {% for num in puzzle.get('downClues').split(' ') %}
         <tr>
-            <td>{% num %}. </td>
+            <td>{{num }}. </td>
         </tr>
         {% endfor %}
 
