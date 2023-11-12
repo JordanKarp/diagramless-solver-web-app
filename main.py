@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, session
 import os
 
 from solver.main import run
@@ -34,20 +34,19 @@ def solve():
     solutions = run(
         rows, columns, aClues, dClues, symmetry, starting, connected, findAll
     )
-    # session["puzzle"] = form_data
-    # session["solutions"] = solutions
+    session["puzzle"] = form_data
+    session["solutions"] = solutions
 
     return render_template("solve.html", puzzle=form_data, solutions=solutions)
 
 
 @app.route("/print")
 def print():
-    # puzzle = session.get('puzzle', None)
-    # solutions = session.get('solutions', None)
+    puzzle = session.get("puzzle", None)
+    solutions = session.get("solutions", None)
 
-    # return render_template("print.html", puzzle=puzzle, solutions=solutions)
-    print(request.values)
-    return render_template("print.html")
+    return render_template("print.html", puzzle=puzzle, solutions=solutions)
+    # return render_template("print.html")
 
 
 if __name__ == "__main__":
