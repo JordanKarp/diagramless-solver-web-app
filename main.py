@@ -4,6 +4,8 @@ import os
 from solver.main import run
 
 app = Flask(__name__)
+app.secret_key = "BAD_SECRET_KEY"
+
 
 PORT = os.getenv("PORT", default=5000)
 
