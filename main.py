@@ -46,7 +46,7 @@ def print():
     # solutions = session.get('solutions', None)
 
     # return render_template("print.html", puzzle=puzzle, solutions=solutions)
-    # print(request.values)
+    print(request.values)
     return render_template("print.html")
 
 
