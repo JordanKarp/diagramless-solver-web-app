@@ -139,7 +139,7 @@ table {
     font-size: 1.5rem;
     text-align: center;
 }
-.solution > table {
+.solutionTable {
     border-collapse: collapse;
     border: 1px solid black;
     margin: 10px;

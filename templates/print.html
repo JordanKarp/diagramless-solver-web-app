@@ -48,10 +48,10 @@
             <h2>No solutions found</h2>
 
             {% else %}
-            
+
             {% for sol in solutions %}
-            <div class="solution">
-                <table>
+            <div>
+                <table class="solutionTable">
                     <tbody>
                         <tr>
                             {% for sq in sol.split(' ') %}
