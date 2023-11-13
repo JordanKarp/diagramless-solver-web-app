@@ -46,10 +46,10 @@ def solve():
 def print():
     puzzle = session.get("puzzle", None)
     solutions = session.get("solutions", None)
-    sol = solutions[request.form["solValue"]]
+    # sol = solutions[request.form["solValue"]]
 
-    if puzzle and sol:
-        return render_template("print.html", puzzle=puzzle, solution=sol)
+    # if puzzle and sol:
+    #     return render_template("print.html", puzzle=puzzle, solution=sol)
 
     return render_template("index.html")
     # return render_template("print.html", puzzle=puzzle, solutions=solutions)
