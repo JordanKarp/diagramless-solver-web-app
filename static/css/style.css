@@ -146,9 +146,6 @@ table {
     background: white;
 }
 
-.printDetails {
-    width: 100%;
-}
 
 .sq {
     border: 1px solid black;
@@ -186,6 +183,13 @@ table {
     text-align: left;
 }
 
+.printDetails {
+    width: 100%;
+}
+
+.printSolutions {
+    float: right;
+}
 
 #diagram {
     width: var(--content-max-width);
