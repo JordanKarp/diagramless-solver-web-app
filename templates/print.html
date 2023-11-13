@@ -27,10 +27,10 @@
                     <tr>
                         {% for sq in solution.split(' ') %}
                         {% if sq == '\n' %}
-                    </tr>
-                    {% if loop.index != loop.length %}
-                        <tr>
-                    {% endif %}
+                            </tr>
+                                {% if loop.index != loop.length %}
+                                    <tr>
+                                {% endif %}
                         {% elif sq == '▇▇' %}
                         <td class="sq black"></td>
                         {% elif sq == '--' %}
@@ -45,36 +45,7 @@
         </div>
 
 
-        <!-- <div id="printSolution">
-            {% if not solutions %}
-            <h2>No solutions found</h2>
 
-            {% else %}
-
-            {% for sol in solutions %}
-            <div>
-                <table class="solutionTable">
-                    <tbody>
-                        <tr>
-                            {% for sq in sol.split(' ') %}
-                            {% if sq == '\n' %}
-                        </tr>
-                        {% if loop.index != loop.length %}
-                            <tr>
-                        {% endif %}
-                            {% elif sq == '▇▇' %}
-                            <td class="sq black"></td>
-                            {% elif sq == '--' %}
-                            <td class="sq">  </td>
-                            {% else %}
-                            <td class="sq"><sup>{{sq}}</sup></td>
-                            {% endif %}
-                            {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-            {% endfor %}
-        </div> -->
 
         
         <div class="printDetails">
