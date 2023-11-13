@@ -48,8 +48,8 @@ def print():
     solutions = session.get("solutions", None)
     sol = solutions[request.form.get("printer", 0)]
 
-    # if puzzle and sol:
-    #     return render_template("print.html", puzzle=puzzle, solution=sol)
+    if puzzle and sol:
+        return render_template("print.html", puzzle=puzzle, solution=sol)
 
     return render_template("index.html")
     # return render_template("print.html", puzzle=puzzle, solutions=solutions)
