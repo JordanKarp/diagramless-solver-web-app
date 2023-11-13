@@ -17,63 +17,59 @@
     <hr/>
     <div class="printMain">
 
-        <div id="printSolution">
-            {% if not solution %}
-            <h2>No solution found</h2>
+        {% if not solution %}
+        <h2>No solution found</h2>
 
-            {% else %}
-            <table class="solutionTable">
-                <tbody>
-                    <tr>
-                        {% for sq in solution.split(' ') %}
-                        {% if sq == '\n' %}
-                            </tr>
-                                {% if loop.index != loop.length %}
-                                    <tr>
-                                {% endif %}
-                        {% elif sq == '▇▇' %}
-                        <td class="sq black"></td>
-                        {% elif sq == '--' %}
-                        <td class="sq">  </td>
-                        {% else %}
-                        <td class="sq"><sup>{{sq}}</sup></td>
-                        {% endif %}
-                        {% endfor %}
-                </tbody>
-            </table>
-            {% endif %}
-        </div>
+        {% else %}
+        <table class="solutionTable">
+            <tbody>
+                <tr>
+                    {% for sq in solution.split(' ') %}
+                    {% if sq == '\n' %}
+                        </tr>
+                            {% if loop.index != loop.length %}
+                                <tr>
+                            {% endif %}
+                    {% elif sq == '▇▇' %}
+                    <td class="sq black"></td>
+                    {% elif sq == '--' %}
+                    <td class="sq">  </td>
+                    {% else %}
+                    <td class="sq"><sup>{{sq}}</sup></td>
+                    {% endif %}
+                    {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
 
 
 
-
+        {% if not puzzle %}
+        <h2>No puzzle found</h2>
         
-        <div class="printDetails">
-            {% if not puzzle %}
-            <h2>No puzzle found</h2>
-
-            {% else %}
-            <table>
-                <tr>
-                    <th class="printClueHead">Across clues:</th>
-                </tr>
-                {% for num in puzzle.get('acrossClues').split(' ') %}
-                <tr>
-                    <td> {{ num }}. </td>
-                </tr>
-                {% endfor %}
-                <tr>
-                    <th class="printClueHead">Down clues:</th>
-                </tr>
-                {% for num in puzzle.get('downClues').split(' ') %}
-                <tr>
-                    <td>{{num }}. </td>
-                </tr>
-                {% endfor %}
+        {% else %}
+        <table class="acrossDetails">
+            <tr>
+                <th class="printClueHead">Across clues:</th>
+            </tr>
+            {% for num in puzzle.get('acrossClues').split(' ') %}
+            <tr>
+                <td> {{ num }}. </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <table class="downDetails">
+            <tr>
+                <th class="printClueHead">Down clues:</th>
+            </tr>
+            {% for num in puzzle.get('downClues').split(' ') %}
+            <tr>
+                <td>{{num }}. </td>
+            </tr>
+            {% endfor %}
 
             </table>
-            {% endif %}
-        </div>
+        {% endif %}
     </div>
 </body>
 </html>
