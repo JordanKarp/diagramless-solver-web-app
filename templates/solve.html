@@ -72,7 +72,11 @@
         <div class="solution">
             <div class="solHead">
                 <p>Solution {{ loop.index }}</p>
-                <a href="/print" data-sol="{sol}"><box-icon type='solid' name='printer' class="print"></box-icon></a>
+                <form action="/print" method="get">
+                    <input type="hidden" name="solValue" value="{{ sol }}">
+                    <button type="submit"><box-icon type='solid' name='printer' class="print"></box-icon></button>
+                </form>
+                <!-- <a href="/print" data-sol="{sol}"><box-icon type='solid' name='printer' class="print"></box-icon></a> -->
             </div>
             <table class="solutionTable">
                 <tbody>

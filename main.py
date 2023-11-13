@@ -45,10 +45,10 @@ def solve():
 @app.route("/print")
 def print():
     puzzle = session.get("puzzle", None)
-    solutions = session.get("solutions", None)
-
-    return render_template("print.html", puzzle=puzzle, solutions=solutions)
-    # return render_template("print.html")
+    # solutions = session.get("solutions", None)
+    sol = request.form.get("solValue")
+    return render_template("print.html", puzzle=puzzle, solution=sol)
+    # return render_template("print.html", puzzle=puzzle, solutions=solutions)
 
 
 if __name__ == "__main__":

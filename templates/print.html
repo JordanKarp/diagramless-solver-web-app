@@ -16,7 +16,35 @@
     </header>
     <hr/>
     <div class="printMain">
+
         <div id="printSolution">
+            {% if not solution %}
+            <h2>No solution found</h2>
+
+            {% else %}
+            <table class="solutionTable">
+                <tbody>
+                    <tr>
+                        {% for sq in solution.split(' ') %}
+                        {% if sq == '\n' %}
+                    </tr>
+                    {% if loop.index != loop.length %}
+                        <tr>
+                    {% endif %}
+                        {% elif sq == '▇▇' %}
+                        <td class="sq black"></td>
+                        {% elif sq == '--' %}
+                        <td class="sq">  </td>
+                        {% else %}
+                        <td class="sq"><sup>{{sq}}</sup></td>
+                        {% endif %}
+                        {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+        <!-- <div id="printSolution">
             {% if not solutions %}
             <h2>No solutions found</h2>
 
@@ -45,7 +73,9 @@
                 </table>
             </div>
             {% endfor %}
-        </div>
+        </div> -->
+
+        
         <div class="printDetails">
             {% if not puzzle %}
             <h2>No puzzle found</h2>
