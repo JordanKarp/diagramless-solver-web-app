@@ -183,12 +183,9 @@ table {
     text-align: left;
 }
 
-.printDetails {
+.acrossDetails,
+.downDetails {
     width: 100%;
-}
-
-.printSolutions {
-    float: right;
 }
 
 #diagram {
