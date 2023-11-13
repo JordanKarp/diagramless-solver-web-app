@@ -22,22 +22,23 @@ def info():
 
 @app.route("/solve", methods=["POST"])
 def solve():
-    form_data = request.form
-    # Retrieve user inputs from the form
-    rows = form_data.get("rows")
-    columns = form_data.get("columns")
-    aClues = form_data.get("acrossClues")
-    dClues = form_data.get("downClues")
-    symmetry = form_data.get("symmetry")
-    starting = form_data.get("starting")
-    connected = form_data.get("connected") == "on"
-    findAll = form_data.get("findAll") == "on"
+    if session["puzzle"] != request.form:
+        form_data = request.form
+        # Retrieve user inputs from the form
+        rows = form_data.get("rows")
+        columns = form_data.get("columns")
+        aClues = form_data.get("acrossClues")
+        dClues = form_data.get("downClues")
+        symmetry = form_data.get("symmetry")
+        starting = form_data.get("starting")
+        connected = form_data.get("connected") == "on"
+        findAll = form_data.get("findAll") == "on"
 
-    solutions = run(
-        rows, columns, aClues, dClues, symmetry, starting, connected, findAll
-    )
-    session["puzzle"] = form_data
-    session["solutions"] = solutions
+        solutions = run(
+            rows, columns, aClues, dClues, symmetry, starting, connected, findAll
+        )
+        session["puzzle"] = form_data
+        session["solutions"] = solutions
 
     return render_template("solve.html", puzzle=form_data, solutions=solutions)
 
