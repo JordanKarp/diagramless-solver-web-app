@@ -149,12 +149,15 @@ table {
 .sq {
     border: 1px solid black;
     border-collapse: collapse;
+    text-align: left;
+    vertical-align: baseline;
     /* padding: 2px 14.5px 6px 2px; */
     padding: 2px;
 }
 .black {
     background-color: black;
     text-align: center;
+    vertical-align: middle;
 }
 
 .number {
