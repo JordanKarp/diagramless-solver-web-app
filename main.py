@@ -46,7 +46,7 @@ def solve():
 def print():
     puzzle = session.get("puzzle", None)
     solutions = session.get("solutions", None)
-    sol = solutions[request.form["solValue"]]
+    sol = solutions[request.form.get("printer")]
 
     # if puzzle and sol:
     #     return render_template("print.html", puzzle=puzzle, solution=sol)
