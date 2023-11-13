@@ -14,62 +14,67 @@
         <h1 id="title">Diagramless Crossword Solver</h1>
         <a href='/info'><box-icon name='info-circle' type='solid' animation='tada-hover'></box-icon></a>
     </header>
-    <hr/>
-    {% if not puzzle %}
-    <h2>No puzzle found</h2>
 
-    {% else %}
-    <table>
-        <tr>
-            <th>Across clues:</th>
-        </tr>
-        {% for num in puzzle.get('acrossClues').split(' ') %}
-        <tr>
-            <td> {{ num }}. </td>
-        </tr>
-        {% endfor %}
-        <tr>
-            <th>Down clues:</th>
-        </tr>
-        {% for num in puzzle.get('downClues').split(' ') %}
-        <tr>
-            <td>{{num }}. </td>
-        </tr>
-        {% endfor %}
+    <div class="printMain">
+        <div class="printDetails">
+            <hr/>
+            {% if not puzzle %}
+            <h2>No puzzle found</h2>
 
-    </table>
-    {% endif %}
-
-    {% if not solutions %}
-    <h2>No solutions found</h2>
-
-    {% else %}
-
-    <div id="solutions">
-        {% for sol in solutions %}
-        <div class="solution">
+            {% else %}
             <table>
-                <tbody>
-                    <tr>
-                        {% for sq in sol.split(' ') %}
-                        {% if sq == '\n' %}
-                    </tr>
-                    {% if loop.index != loop.length %}
-                        <tr>
-                    {% endif %}
-                        {% elif sq == '▇▇' %}
-                        <td class="sq black"></td>
-                        {% elif sq == '--' %}
-                        <td class="sq">  </td>
-                        {% else %}
-                        <td class="sq"><sup>{{sq}}</sup></td>
-                        {% endif %}
-                        {% endfor %}
-                </tbody>
+                <tr>
+                    <th class="printClueHead">Across clues:</th>
+                </tr>
+                {% for num in puzzle.get('acrossClues').split(' ') %}
+                <tr>
+                    <td> {{ num }}. </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <th class="printClueHead">Down clues:</th>
+                </tr>
+                {% for num in puzzle.get('downClues').split(' ') %}
+                <tr>
+                    <td>{{num }}. </td>
+                </tr>
+                {% endfor %}
+
             </table>
+            {% endif %}
         </div>
-        {% endfor %}
+        <div id="solutions">
+            {% if not solutions %}
+            <h2>No solutions found</h2>
+
+            {% else %}
+            
+            {% for sol in solutions %}
+            <div class="solution">
+                <table>
+                    <tbody>
+                        <tr>
+                            {% for sq in sol.split(' ') %}
+                            {% if sq == '\n' %}
+                        </tr>
+                        {% if loop.index != loop.length %}
+                            <tr>
+                        {% endif %}
+                            {% elif sq == '▇▇' %}
+                            <td class="sq black"></td>
+                            {% elif sq == '--' %}
+                            <td class="sq">  </td>
+                            {% else %}
+                            <td class="sq"><sup>{{sq}}</sup></td>
+                            {% endif %}
+                            {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
     </div>
-    {% endif %}
 </body>
 </html>

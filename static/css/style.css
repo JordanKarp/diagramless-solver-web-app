@@ -173,6 +173,16 @@ table {
     box-shadow: 2px 2px;
 }
 
+.printMain {
+    display: flex;
+}
+
+.print,
+.printClueHead {
+    text-align: left;
+}
+
+
 #diagram {
     width: var(--content-max-width);
 }
