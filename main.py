@@ -42,11 +42,11 @@ def solve():
     return render_template("solve.html", puzzle=form_data, solutions=solutions)
 
 
-@app.route("/print")
+@app.route("/print", methods=["POST"])
 def print():
     puzzle = session.get("puzzle", None)
     solutions = session.get("solutions", None)
-    sol = solutions[request.form["solValue", 0]]
+    sol = solutions[request.form["solValue"]]
 
     if puzzle and sol:
         return render_template("print.html", puzzle=puzzle, solution=sol)

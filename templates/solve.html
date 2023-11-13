@@ -72,8 +72,8 @@
         <div class="solution">
             <div class="solHead">
                 <p>Solution {{ loop.index }}</p>
-                <form action="/print">
-                    <input type="hidden" name="solValue" value="{{ loop.index }}">
+                <form action="{{ url_for('print') }}" method="post">
+                    <input type="hidden" name="solValue" value="{{ sol }}">
                     <button type="submit"><box-icon type='solid' name='printer' class="print"></box-icon></button>
                 </form>
                 <!-- <a href="/print" data-sol="{sol}"><box-icon type='solid' name='printer' class="print"></box-icon></a> -->
