@@ -20,9 +20,9 @@ def info():
     return render_template("info.html")
 
 
-@app.route("/solve", methods=["POST"])
+@app.route("/solve", methods=["POST", "GET"])
 def solve():
-    if session["puzzle"] != request.form:
+    if request.method == "POST":
         form_data = request.form
         # Retrieve user inputs from the form
         rows = form_data.get("rows")
@@ -39,6 +39,9 @@ def solve():
         )
         session["puzzle"] = form_data
         session["solutions"] = solutions
+    elif request.method == "GET":
+        form_data = session["puzzle"]
+        solutions = session["solutions"]
 
     return render_template("solve.html", puzzle=form_data, solutions=solutions)
 
