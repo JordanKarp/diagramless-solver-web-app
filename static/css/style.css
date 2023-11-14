@@ -248,6 +248,10 @@ table {
 
 }
 
+@media print {
+    body {-webkit-print-color-adjust: exact;}
+}
+
 @keyframes loading {
     from {
         transform: rotate(0turn);
