@@ -24,21 +24,21 @@
             <div class="inputOption" id="form">
                 <h2>Input puzzle info here:</h4>
                 <form action="/solve" method="post" id="puzzleForm">
-                    <label for="rows" title="Number of rows in the puzzle">ⓘ Rows: 
-                        <input type="number" name="rows" id="rowInput" min="3" placeholder="5" required/>
+                    <label for="rows" title="Number of rows in the puzzle" class="required">Number of Rows: 
+                        <input type="number" name="rows" id="rowInput" min="3" placeholder="5" size="5" required/>
                     </label>
-                    <label for="columns" title="Number of columns in the puzzle">ⓘ Columns: 
-                        <input type="number" name="columns" id="columnInput" min="3" placeholder="5"/>
+                    <label for="columns" title="Number of columns in the puzzle" class="required">Number of Columns: 
+                        <input type="number" name="columns" id="columnInput" min="3" placeholder="5" size="5"/>
                     </label>
-                    <label for="acrossClues" title="List across clues separated by a space">ⓘ Across Clues: 
+                    <label for="acrossClues" title="List across clues separated by a space" class="required">Across Clue Numbers, separated by a space: 
                         <input type="text" name="acrossClues" id="acrossInput" contenteditable="true" size='50' pattern="\d+ (?:\d+ )*\d+"  placeholder="1 4 5 8 9"required/>
                     </label>
-                    <label for="downClues" title="List down clues separated by a space">ⓘ Down Clues: 
+                    <label for="downClues" title="List down clues separated by a space" class="required">Down Clues Numbers, separated by a space: 
                         <input type="text" name="downClues" id="downInput" contenteditable="true" size='50' pattern="\d+ (?:\d+ )*\d+" placeholder="1 2 3 6 7" required/>
                     </label>
-                    <label for="symmetry" title="Define the puzzle's symmetry">ⓘ Symmetry: 
+                    <label for="symmetry" title="Define the puzzle's symmetry type">Enforce symmetrical puzzle: 
                         <select name="symmetry" id="symmetryInput">
-                            <option value="None" selected>None enforced</option>
+                            <option value="None" selected>No</option>
                             <option value="Rotational">Rotational</option>
                             <option value="Left Right">Left Right</option>
                             <option value="Up Down">Up Down</option>
@@ -50,13 +50,13 @@
                             <option value="Asymmetry">Asymmetry</option>
                         </select>
                     </label>
-                    <label for="starting" title="Please input the starting square. Leave blank (or put 0) to not enforce.">ⓘ Starting Square: 
-                        <input type="number" name="starting" id="startingInput" value="0" min="0" max="20" inputmode="numeric"/>
+                    <label for="starting" title="Please input the starting square. Leave blank (or put 0) to not enforce.">Starting Square Number (0 to ignore): 
+                        <input type="number" name="starting" id="startingInput" value="0" min="0" max="20" inputmode="numeric" size="5"/>
                     </label>
-                    <label for="connected" title="Traditional crosswords are all one 'zone' - this enforces that interconnectedness.">ⓘ Enforce a connected grid: 
+                    <label for="connected" title="Traditional crosswords are all one 'zone' - this enforces that interconnectedness.">Enforce a connected grid: 
                         <input type="checkbox" name="connected" id="connectedInput" checked>
                     </label>
-                    <label for="findAll" title="Continue the program after a solution has been found. CAUTION: may extend solve time significantly.">ⓘ Find every solution: 
+                    <label for="findAll" title="Continue the program after a solution has been found. CAUTION: may extend solve time significantly.">Find every solution: 
                         <input type="checkbox" name="findAll" id="findAllInput" >
                     </label>
                 </form>

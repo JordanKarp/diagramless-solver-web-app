@@ -152,8 +152,8 @@ table {
     text-align: left;
     vertical-align: baseline;
     padding: 2px;
-    width: 2rem;
-    height: 2rem;
+    min-width: 2rem;
+    min-height: 2rem;
 }
 .black {
     background-color: black;
