@@ -151,8 +151,9 @@ table {
     border-collapse: collapse;
     text-align: left;
     vertical-align: baseline;
-    /* padding: 2px 14.5px 6px 2px; */
     padding: 2px;
+    width: 2rem;
+    height: 2rem;
 }
 .black {
     background-color: black;
