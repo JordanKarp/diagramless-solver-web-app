@@ -50,26 +50,29 @@
         
         {% else %}
         <table class="acrossDetails">
-            <tr>
-                <th class="printClueHead">Across clues:</th>
-            </tr>
-            {% for num in puzzle.get('acrossClues').split(' ') %}
-            <tr>
-                <td> {{ num }}. </td>
-            </tr>
-            {% endfor %}
+            <tbody>
+                <tr>
+                    <th class="printClueHead">Across clues:</th>
+                </tr>
+                {% for num in puzzle.get('acrossClues').split(' ') %}
+                <tr>
+                    <td> {{ num }}. </td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
         <table class="downDetails">
-            <tr>
-                <th class="printClueHead">Down clues:</th>
-            </tr>
-            {% for num in puzzle.get('downClues').split(' ') %}
-            <tr>
-                <td>{{num }}. </td>
-            </tr>
-            {% endfor %}
-
-            </table>
+            <tbody>
+                <tr>
+                    <th class="printClueHead">Down clues:</th>
+                </tr>
+                {% for num in puzzle.get('downClues').split(' ') %}
+                <tr>
+                    <td>{{num }}. </td>
+                </tr>
+                {% endfor %}
+            </tbody>     
+        </table>
         {% endif %}
     </div>
     <script>
