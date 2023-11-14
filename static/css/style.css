@@ -155,6 +155,8 @@ table {
     border: 1px solid black;
     margin: 10px;
     background: white;
+    flex: 2 1 auto;
+    aspect-ratio: 1 / 1;
 }
 
 .sq {
@@ -204,6 +206,7 @@ table {
 .acrossDetails,
 .downDetails {
     width: 100%;
+    flex: 1 1 0;
 }
 
 #diagram {
