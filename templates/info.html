@@ -33,7 +33,7 @@
     <hr/>
     <h2>Diagramless Technical Breakdown</h2>
     <p>At a basic level, the program through each square, placing the correct value, as determined by the exclusion table.</p>
-    <p>If there are two possible values, the options will always be a black square or some other value. At this point the solver will mark a backtracking point, and continue on solving with the other value. This will proceed until there are no possible options, or the puzzle is correct. </p>
+    <p>If there are two possible values, the options will always be a black square or some other value. At this point the solver will mark a backtracking point, and continue on solving with the other value. This will proceed until there are no possible options (at which point it will backtrack) or the puzzle is correct. </p>
     <p>The basic psuedocode is outlined below and a visual representation can be found further down:
     <ul>
         <li>While still solving:</li>
@@ -61,7 +61,7 @@
     <p>If the puzzle is searching for every solution, it will exit this loop only when there are no more backtracking spots. Otherwise it will exit after the first solution.
     
     <hr/>
-    <h3>Exclusion Table</h3>
+    <h2>Exclusion Table</h2>
 
     <p>The exclusion table is used to help determine which values are possible for a single square. It analyzes each of the square's neighbors, one at a time, and determines what is NOT possible for that specific configuration. For example, if direcly above the pointer there is a black square, then it is impossible for the pointer to be either an across clue or an empty square, based on the rules of crossword puzzles.</p>
 
@@ -79,7 +79,7 @@
     <p>The exclusion table is a bit of a misnomer, as it is actually a dictionary, but this was just done to decrease time complexity.</p>
 
     <hr/>
-    <h3>Symmetry</h3>
+    <h2>Symmetry</h2>
 
     <p>When symmetry is enforced, it tends to speed up the process signficantly. For each black square placed, the solver will be able to place one (or more) symmetrical black squares.<p>
     <p>So in order to speed up the process during solving, for each type of symmetry we need to determine two different 'zones', one where we place black squares and one where ONLY symmetrically mirrored black squares are placed based on the first zone. If the pointer is in the 'can place' zone, then it will place a black square in that zone, and the corresponding black squares in the symetrical location(s).</p>
@@ -133,23 +133,23 @@
     </table>
     
     <hr/>
-    <h3>Algorithm Visual Diagram</h3>
+    <h2>Algorithm Visual Diagram</h2>
     <img id="diagram" src="../static/img/diagram.png" alt="A diagram of the pseudocode for this project" />
 
     <hr/>
-    <h3>Needed Improvements:</h3>
+    <h2>Needed Improvements:</h2>
     <ul>
         <li>Threading for faster processing</li>
         <li>.PUZ support</li>
     </ul>
 
     <hr/>
-    <h3>Code</h3>
+    <h2>Code</h2>
     <p><a href="https://github.com/JordanKarp/diagramless_solver">Github</a> for the original Python version run from the terminal.</p>
     <p><a href="https://github.com/JordanKarp/diagramless-solver-web-app">Github</a> for the Web / Python version seen here.</p>
 
     <hr/>
-    <h3>Feedback</h3>
+    <h2>Feedback</h2>
     <p>This is still a work in progress so please reach out if you have any questions, comments, or suggestions!</p>
     <p>Jordan Karp - jordanmatthew.karp@gmail.com</p>
 </body>
