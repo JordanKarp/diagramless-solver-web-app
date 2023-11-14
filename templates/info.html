@@ -16,21 +16,22 @@
         <a href='/info'><box-icon name='info-circle' type='solid' animation='tada-hover'></box-icon></a>
     </header>
     <hr/>
-    <h2>Diagramless Puzzle Info</h2>
+
+    <h2>What is a Diagramless Crossword Puzzle?</h2>
     <p>A diagramless crossword puzzle is similar to an American-style crossword puzzle and follows all the same rules. However the locations of the clue numbers and shaded (black) squares are unspecified. Essentially, you're provided only a blank grid along with the crossword clues.</p>
     <p>A human solver must deduce two things:</p>
     <ol>
         <li>The word answers to individual clues.</li>
         <li>The locations to the specific clue numbers, shaded (black) squares, and empty squares.</li>
     </ol>
-    <p><strong>This builder tackles ONLY the second part. It builds the entire crossword grid without considering the clues or the clue answers whatsoever.</strong></p>
-    <p>It will soley look at the clue numbers and whether they are an across clue, a down clue, or both.</p>
-    <p>Diagramless crossword puzzles also tend to give some hints, which can be added here as parameters. These include symmetry (and the different types thereof) and where is the 'starting square' of the puzzle.</p>
-    <p>This program can take these inputs, and return all possible solutions for the given puzzle.</p>
+
+    <hr/>
+    <h2>What does this program do?</h2>
+    <p><strong>This builder tackles ONLY the second part - it builds the entire crossword grid without considering the clues or the clue answers whatsoever.</strong> It will soley look at the clue numbers and whether they are an across clue, a down clue, or both.</p>
+    <p>Diagramless crossword puzzles also tend to give some hints, which can be added here as parameters. These include symmetry (and the different types thereof) and where is the 'starting square' of the puzzle. This program can take these inputs, and return all possible solutions for the given puzzle.</p>
 
     <hr/>
     <h2>Diagramless Technical Breakdown</h2>
-
     <p>At a basic level, the program through each square, placing the correct value, as determined by the exclusion table.</p>
     <p>If there are two possible values, the options will always be a black square or some other value. At this point the solver will mark a backtracking point, and continue on solving with the other value. This will proceed until there are no possible options, or the puzzle is correct. </p>
     <p>The basic psuedocode is outlined below and a visual representation can be found further down:
@@ -58,11 +59,11 @@
         </ul>
     </ul>
     <p>If the puzzle is searching for every solution, it will exit this loop only when there are no more backtracking spots. Otherwise it will exit after the first solution.
-
+    
+    <hr/>
     <h3>Exclusion Table</h3>
 
-    <p>The exclusion table is used to help determine which values are possible for a single square. It analyzes each of the square's neighbors, one at a time, and determines what is NOT possible for that specific configuration.</p>
-    <p>For example, if direcly above the pointer there is a black square, then it is impossible for the pointer to be either an across clue or an empty square, based on the rules of crossword puzzles.</p>
+    <p>The exclusion table is used to help determine which values are possible for a single square. It analyzes each of the square's neighbors, one at a time, and determines what is NOT possible for that specific configuration. For example, if direcly above the pointer there is a black square, then it is impossible for the pointer to be either an across clue or an empty square, based on the rules of crossword puzzles.</p>
 
     <p>A point to note, this exclusion table ONLY looks at the pointer and that specific neighbor, one at a time. So if Up 2 is black, it does not check what up 1 is when determining what is 'impossble'. Because of this, some of the values in this lookup table are empty, meaning that that configuration does not restrict the pointer's possible values.</p>
 
@@ -77,6 +78,7 @@
     <p>Then the difference between these impossible values and all values results in only the possible values left.</p>
     <p>The exclusion table is a bit of a misnomer, as it is actually a dictionary, but this was just done to decrease time complexity.</p>
 
+    <hr/>
     <h3>Symmetry</h3>
 
     <p>When symmetry is enforced, it tends to speed up the process signficantly. For each black square placed, the solver will be able to place one (or more) symmetrical black squares.<p>
@@ -86,8 +88,8 @@
     <table>
         <thead>
             <tr>
-                <th>Type</th>
-                <th>Explaination</th>
+                <th><b>Type</b></th>
+                <th><b>Explaination</b></th>
             </tr>
         </thead>
         <tbody>
@@ -129,6 +131,8 @@
             </tr>
         </tbody>
     </table>
+    
+    <hr/>
     <h3>Algorithm Visual Diagram</h3>
     <img id="diagram" src="../static/img/diagram.png" alt="A diagram of the pseudocode for this project" />
 
@@ -138,10 +142,13 @@
         <li>Threading for faster processing</li>
         <li>.PUZ support</li>
     </ul>
+
+    <hr/>
     <h3>Code</h3>
     <p><a href="https://github.com/JordanKarp/diagramless_solver">Github</a> for the original Python version run from the terminal.</p>
     <p><a href="https://github.com/JordanKarp/diagramless-solver-web-app">Github</a> for the Web / Python version seen here.</p>
 
+    <hr/>
     <h3>Feedback</h3>
     <p>This is still a work in progress so please reach out if you have any questions, comments, or suggestions!</p>
     <p>Jordan Karp - jordanmatthew.karp@gmail.com</p>
