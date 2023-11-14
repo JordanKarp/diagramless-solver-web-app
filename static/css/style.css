@@ -119,6 +119,10 @@ table {
     justify-content: space-between;
 }
 
+#prefilledButtons > * {
+    margin:5px;
+}
+
 #puzzleDetails ~ td {
     font-size: 1.3rem;
     padding: 2px 8px;
