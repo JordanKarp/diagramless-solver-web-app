@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     font-family: "Open Sans", Arial;
 }
@@ -9,9 +11,11 @@ header {
     align-items: center;
 }
 
-p, li {
+p,
+li {
     font-size: 1.2rem;
 }
+
 p {
     margin: .3rem 0;
     padding: 0.3rem;
@@ -20,42 +24,32 @@ p {
 .content-grid,
 .full-width {
     --padding-inline: 2rem;
-    --content-max-width: 1000px;
-    --breakout-max-width: 1200px;
-    --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2 );
+    --content-max-width: 1200px;
+    --breakout-max-width: 1300px;
+    --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
 
     display: grid;
     grid-template-columns:
-      [full-width-start]
-      minmax(var(--padding-inline), 1fr)
-      [breakout-start]
-      minmax(0, var(--breakout-size))
-      [content-start]
-      min(100% - var(--padding-inline) * 2, var(--content-max-width)) 
-      [content-end]
-      minmax(0, var(--breakout-size))
-      [breakout-end]
-      minmax(var(--padding-inline), 1fr)
-      [full-width-end]
+        [full-width-start] minmax(var(--padding-inline), 1fr) [breakout-start] minmax(0, var(--breakout-size)) [content-start] min(100% - var(--padding-inline) * 2, var(--content-max-width)) [content-end] minmax(0, var(--breakout-size)) [breakout-end] minmax(var(--padding-inline), 1fr) [full-width-end]
 }
 
-.content-grid > *,
-.full-width > * {
-  grid-column: content;
+.content-grid>*,
+.full-width>* {
+    grid-column: content;
 }
 
-.content-grid > .breakout {
-  grid-column: breakout;
+.content-grid>.breakout {
+    grid-column: breakout;
 }
 
-.content-grid > .full-width {
-  grid-column: full-width;
+.content-grid>.full-width {
+    grid-column: full-width;
 }
 
 hr {
     margin-left: 0;
     margin-right: 0;
-  }
+}
 
 #content {
     display: flex;
@@ -72,16 +66,17 @@ hr {
 .submitButton {
     font-size: 1.4rem;
     width: 80%;
-    background-color: rgb(200,200,200);
+    background-color: rgb(200, 200, 200);
     border-radius: 16px;
     box-shadow: 2px 2px;
     border: none;
     transition: all 0.3s;
     margin: 1rem;
 }
+
 .submitButton:hover {
     color: #fff;
-    background-color: rgb(50,50,50);
+    background-color: rgb(50, 50, 50);
 }
 
 
@@ -97,7 +92,7 @@ table {
 }
 
 .inputOption {
-    background-color: rgb(200,200,200);
+    background-color: rgb(200, 200, 200);
     width: fit-content;
     padding: 0.5rem 1rem;
     margin: 10px;
@@ -105,7 +100,7 @@ table {
     box-shadow: 2px 2px;
 }
 
-.puzzleForm > label{
+.puzzleForm>label {
     margin: 5px 0;
 }
 
@@ -124,19 +119,20 @@ table {
     justify-content: center;
 }
 
-#prefilledButtons > * {
-    margin:5px;
+#prefilledButtons>* {
+    margin: 5px;
 }
 
-#puzzleDetails ~ td {
+#puzzleDetails~td {
     font-size: 1.3rem;
     padding: 2px 8px;
 }
 
+
 .required:before {
-    content:" *";
+    content: " *";
     color: red;
-  }
+}
 
 .solHead {
     display: flex;
@@ -144,12 +140,13 @@ table {
     align-items: center;
 }
 
-.solution > p {
+.solution>p {
     padding: 0 1rem;
     margin: 0;
     font-size: 1.5rem;
     text-align: center;
 }
+
 .solutionTable {
     border-collapse: collapse;
     border: 1px solid black;
@@ -170,6 +167,7 @@ table {
     width: 2rem;
     height: 2rem;
 }
+
 .black {
     background-color: black;
     text-align: center;
@@ -189,7 +187,7 @@ table {
 .solution {
     margin: 10px;
     padding: 0.5rem;
-    background: rgb(200,200,200);
+    background: rgb(200, 200, 200);
     border-radius: 16px;
     box-shadow: 2px 2px;
 }
@@ -209,22 +207,76 @@ table {
     flex: 1 1 0;
 }
 
+
+.explaination {
+    display: flex;
+    justify-content: space-between;
+}
+
+.clueTable {
+    flex: 15;
+}
+
+.gridTable {
+    flex: 1;
+}
+
+.arrow {
+    margin: auto;
+    font-size: 1.6rem;
+}
+
+.exampleHeader {
+    margin: .2rem;
+    text-decoration: underline;
+}
+
+.exampleList {
+    margin: auto;
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.exampleList>li {
+    font-size: 1rem;
+}
+
+.examplePuzzleDiv {
+    display: flex;
+}
+
+.hint {
+    color: grey;
+    background-color: grey;
+    width: 40%;
+    display: inline-block;
+}
+
+.hint:hover,
+.hint:focus {
+    width: 40%;
+    display: inline-block;
+    color: black;
+    background-color: white;
+}
+
 #diagram {
     width: var(--content-max-width);
 }
 
 .loader {
     position: fixed;
-    top:0;
+    top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
     transform: opacity 2.75s, visibility 2.75s;
 }
+
 .loader-hidden {
     opacity: 0;
     visibility: hidden;
@@ -242,9 +294,10 @@ table {
 
 @media screen and (max-width: 700px) {
     #options {
-        display:flex;
+        display: flex;
         flex-wrap: wrap;
     }
+
     .verticalLine {
         display: none;
     }
@@ -252,13 +305,16 @@ table {
 }
 
 @media print {
-    body {-webkit-print-color-adjust: exact;}
+    body {
+        -webkit-print-color-adjust: exact;
+    }
 }
 
 @keyframes loading {
     from {
         transform: rotate(0turn);
     }
+
     to {
         transform: rotate(1turn);
     }

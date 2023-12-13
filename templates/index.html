@@ -21,11 +21,158 @@
     <p>Rather, it takes a diagramless crossword puzzle and solves for the grid.</p>
     <p>If you've never heard of a diagramless crossword puzzle, or if you're curious for more info, click the <box-icon name='info-circle' type='solid' ></box-icon> in the top right.</p></p>
     <hr/>
+
+    <details>
+        <summary>Example</summary>
+        <div class="explaination">
+            <div>
+                <h3 class="exampleHeader">Puzzle:</h3>
+                <div class="examplePuzzleDiv">
+                    <table class="clueTable">
+                        <thead>
+                            <th></th>
+                            <th style="text-decoration: underline;">Across Clues</th>
+                            <th></th>
+                            <th style="text-decoration: underline;">Down Clues</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1.</td>
+                                <td>Some Across Clue</td>
+                                <td>1.</td>
+                                <td>Some Down Clue</td>
+                            </tr>
+                            <tr>
+                                <td>4.</td>
+                                <td>''   ''   ''</td>
+                                <td>2.</td>
+                                <td>''   ''   ''</td>
+                            </tr>
+                            <tr>
+                                <td>5.</td>
+                                <td>''   ''   ''</td>
+                                <td>3.</td>
+                                <td>''   ''   ''</td>
+                            </tr>
+                            <tr>
+                                <td>8.</td>
+                                <td>''   ''   ''</td>
+                                <td>6.</td>
+                                <td>''   ''   ''</td>
+                            </tr>
+                            <tr>
+                                <td>9.</td>
+                                <td>''   ''   ''</td>
+                                <td>7.</td>
+                                <td>''   ''   ''</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="solutionTable">
+                        <tr>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                        </tr>
+                        <tr>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                        </tr>
+                        <tr>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                        </tr>
+                        <tr>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                        </tr>
+                        <tr>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                            <td class="sq"></td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+            <div class="arrow">=></div>
+            <div>
+                <h3 class="exampleHeader">Solver Input:</h3>
+                <ul class="exampleList">
+                    <li>Number of Rows: 5</li>
+                    <li>Number of Columns: 5</li>
+                    <li>Across Clue Numbers: 1 4 5 8 9</li>
+                    <li>Down Clue Numbers: 1 2 3 6 7</li>
+                    <li>Symmetry: <span class="hint">Asymmetry</span></li>
+                    <li>Starting Square: <span class="hint">1</span></li>
+                    <li>Find all: <input type="checkbox" disabled></li>
+                </ul>
+            </div>
+            <div class="arrow">=></div>
+            <div>
+                <h3 class="exampleHeader">Solution:</h3>
+                <table class="solutionTable">
+                    <tr>
+                        <td class="sq"><sup>1</sup></td>
+                        <td class="sq"><sup>2</sup></td>
+                        <td class="sq"><sup>3</sup></td>
+                        <td class="sq black"></td>
+                        <td class="sq black"></td>
+                    </tr>
+                    <tr>
+                        <td class="sq"><sup>4</sup></td>
+                        <td class="sq"></td>
+                        <td class="sq"></td>
+                        <td class="sq black"></td>
+                        <td class="sq black"></td>
+                    </tr>
+                    <tr>
+                        <td class="sq"><sup>5</sup></td>
+                        <td class="sq"></td>
+                        <td class="sq"></td>
+                        <td class="sq"><sup>6</sup></td>
+                        <td class="sq"><sup>7</sup></td>
+                    </tr>
+                    <tr>
+                        <td class="sq"><sup>8</sup></td>
+                        <td class="sq"></td>
+                        <td class="sq"></td>
+                        <td class="sq"></td>
+                        <td class="sq"></td>
+                    </tr>
+                    <tr>
+                        <td class="sq"><sup>9</sup></td>
+                        <td class="sq"></td>
+                        <td class="sq"></td>
+                        <td class="sq"></td>
+                        <td class="sq"></td>
+                    </tr>
+                </table>
+            </div>
+    
+        </div>
+    </details>
+
+    <hr/>
     <div id="content">
         <div id="options">
             <div class="inputOption" id="form">
                 <h2>Input puzzle info here:</h4>
                 <form action="/solve" method="post" id="puzzleForm">
+                    <label>Puzzle Details:</label>
                     <label for="rows" title="Number of rows in the puzzle" class="required">Number of Rows: 
                         <input type="number" name="rows" id="rowInput" min="3" placeholder="5" size="5" required/>
                     </label>
@@ -38,6 +185,7 @@
                     <label for="downClues" title="List down clues separated by a space" class="required">Down Clues Numbers, separated by a space: 
                         <input type="text" name="downClues" id="downInput" contenteditable="true" size='50' pattern="\d+ (?:\d+ )*\d+" placeholder="1 2 3 6 7" required/>
                     </label>
+                    <label>Solving Details:</label>
                     <label for="symmetry" title="Define the puzzle's symmetry type">Enforce symmetrical puzzle: 
                         <select name="symmetry" id="symmetryInput">
                             <option value="None" selected>No</option>
@@ -63,7 +211,7 @@
                     </label>
                 </form>
             </div>
-            <div class="verticalLine"></div>
+            <!-- <div class="verticalLine"></div>
             <div class="inputOption">
                 <h2>Or choose one of the given puzzles here:</h4>
                 <div id="prefilledButtons"> 
@@ -92,7 +240,7 @@
                     <button type="button" onclick="fillPuzzle('13','13','1 4 5 8 9 11 14 15 16 17 19 20 21 22 24 25 26 27 29 30 31 32', '1 2 3 4 5 6 7 10 11 12 13 18 23 24 26 28', 'Asymmetry', '6', true, false)">13x13 - Asymmetry - 6</button>
                     <button type="button" onclick="fillPuzzle('15','15','1 6 10 13 14 15 16 17 18 19 21 23 25 26 30 31 32 34 37 38 39 40 41 42 43 44 47 51 52 54 58 59 61 62 63 64 65 66 67', '1 2 3 4 5 6 7 8 9 10 11 12 15 20 22 24 26 27 28 29 33 34 35 36 38 39 41 43 45 46 47 48 49 50 53 55 56 57 60', 'Rotational', '1', true, false)">15x15 - Rotational - 1</button>
                 </div>
-            </div>
+            </div> -->
         </div>
         <button type="submit" form="puzzleForm" class="submitButton">Solve</button>
     </div>
