@@ -2,7 +2,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
-    font-family: "Open Sans", Arial;
+    font-family: system-ui, "Open Sans", Arial;
 }
 
 header {
