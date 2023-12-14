@@ -62,6 +62,11 @@ hr {
     justify-content: center;
 }
 
+.formHeader {
+    margin-top: .5rem;
+    margin-bottom: 0;
+}
+
 
 .submitButton {
     font-size: 1.4rem;
@@ -201,6 +206,7 @@ table {
     text-align: left;
 }
 
+
 .acrossDetails,
 .downDetails {
     width: 100%;
@@ -214,7 +220,15 @@ table {
 }
 
 .clueTable {
+    margin: 1rem;
     flex: 15;
+}
+
+
+
+
+.explainationItem {
+    flex-basis: content;
 }
 
 .gridTable {
@@ -222,8 +236,11 @@ table {
 }
 
 .arrow {
-    margin: auto;
+    flex: 0;
     font-size: 1.6rem;
+    flex-basis: 0;
+    margin: auto 0;
+    padding: 3px
 }
 
 .exampleHeader {
@@ -245,16 +262,24 @@ table {
     display: flex;
 }
 
+.exampleInput {
+    width: 65px;
+
+}
+
+
 .hint {
+    width: max-content;
+    min-width: 100px;
     color: grey;
+    border: 1px solid black;
     background-color: grey;
-    width: 40%;
+    min-width: max(fit-content, 100px);
     display: inline-block;
 }
 
 .hint:hover,
 .hint:focus {
-    width: 40%;
     display: inline-block;
     color: black;
     background-color: white;
