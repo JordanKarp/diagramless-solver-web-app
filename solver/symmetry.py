@@ -18,10 +18,10 @@ class Symmetry(ABC):
         Determines black square can be placed at the pointer with symmetry.
 
         Args:
-            pointer (tuple[int, int]): The starting (row, col) index of the word.
+            pointer (tuple[int, int]): Starting (row, col) index of the word.
 
         Returns:
-            bool: True if the black square can be placed, False otherwise.
+            bool: True if the black square can be placed, else False.
         """
         pass
 
