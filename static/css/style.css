@@ -3,6 +3,7 @@
 *::after {
     box-sizing: border-box;
     font-family: system-ui, "Open Sans", Arial;
+    cursor: auto;
 }
 
 header {
@@ -19,6 +20,12 @@ li {
 p {
     margin: .3rem 0;
     padding: 0.3rem;
+}
+
+summary,
+summary h2,
+details {
+    cursor: pointer
 }
 
 .content-grid,
@@ -100,6 +107,10 @@ table {
     border-left: 2px solid black;
 }
 
+
+#puzzleForm {
+    margin: 0.3rem;
+}
 
 .inputForm {
     display: table;
@@ -256,6 +267,7 @@ table {
 .exampleHeader {
     margin: .2rem;
     text-decoration: underline;
+    text-align: center;
 }
 
 .exampleList {
@@ -280,12 +292,12 @@ table {
 
 .hint {
     width: max-content;
-    min-width: 100px;
+    min-width: 50px;
     color: grey;
     border: 1px solid black;
     background-color: grey;
-    min-width: max(fit-content, 100px);
     display: inline-block;
+    cursor: pointer;
 }
 
 .hint:hover,

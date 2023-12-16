@@ -28,7 +28,7 @@
       <summary><h2 style="display: inline; font-size: 1rem;">Example</h2></summary>
       <div class="explaination">
         <div class="explainationItem">
-          <h3 class="exampleHeader">Diagramless Grid:</h3>
+          <h3 class="exampleHeader">Diagramless Grid</h3>
           <table class="solutionTable">
               <tr>
                   <td class="sq"></td>
@@ -68,7 +68,7 @@
           </table>
         </div>
         <div class="explainationItem">
-            <h3 class="exampleHeader">Puzzle Clues:</h3>
+            <h3 class="exampleHeader">Puzzle Clues</h3>
             <table class="clueTable">
                 <thead>
                     <th style="text-decoration: underline;" colspan="2">Across Clues</th>
@@ -127,7 +127,7 @@
         <div class="arrow">&#10140;</div>
 
         <div class="explainationItem">
-            <h3 class="exampleHeader">User Input:</h3>
+            <h3 class="exampleHeader">User Input</h3>
             <form class="inputForm">
               <h3 class="formHeader required">Puzzle Details:</h3>
               <p>
@@ -170,7 +170,7 @@
         <div class="arrow">&#10140;</div>
 
         <div class="explainationItem">
-            <h3 class="exampleHeader">Solution:</h3>
+            <h3 class="exampleHeader">Solution</h3>
             <table class="solutionTable">
                 <tr>
                     <td class="sq black"></td>
@@ -215,56 +215,53 @@
     <hr/>
     <details class='flex' open>
       <summary><h2 style="display: inline; font-size: 1rem;">User Input:</h2></summary>
-      <div id="form">
-        <!-- <h2 class="formHeader">Input puzzle info here:</h4> -->
-        <form action="/solve" method="post" id="puzzleForm" class="inputForm">
-            <h3 class="formHeader required">Puzzle Details:</h3>
-            <p>
-              <label for="rows" title="Number of rows in the puzzle" >Number of Rows:</label>
-              <input type="number" name="rows" id="rowInput" min="3" placeholder="5" size="2" required/>
-            </p>
-            <p>
-              <label for="columns" title="Number of columns in the puzzle">Number of Columns: </label>
-              <input type="number" name="columns" id="columnInput" min="3" placeholder="5" size="2"/>
-            </p>
-            <p>
-            </label>
-              <label for="acrossClues" title="List across clues separated by a space">Across Clue Numbers: </label>
-              <input type="text" name="acrossClues" id="acrossInput" contenteditable="true" size='50' pattern="\d+ (?:\d+ )*\d+"  placeholder="1 4 6 7 8  // Sequential numbers separated by a space"required/>
-            </p>
-            <p>
-              <label for="downClues" title="List down clues separated by a space">Down Clues Numbers: </label>
-              <input type="text" name="downClues" id="downInput" contenteditable="true" size='50' pattern="\d+ (?:\d+ )*\d+" placeholder="1 2 3 4 5  // Sequential numbers separated by a space" required/>
-            </p>
-            <h3 class="formHeader">Solving Options:</h3>
-            <p>
-              <label for="symmetry" title="Define the puzzle's symmetry type">Symmetry: </label>
-              <select name="symmetry" id="symmetryInput">
-                  <option value="None">None</option>
-                  <option value="Rotational">Rotational</option>
-                  <option value="Left Right">Left Right</option>
-                  <option value="Up Down">Up Down</option>
-                  <option value="Dual Rotational">Dual Rotational</option>
-                  <option value="Three Way">Three Way</option>
-                  <option value="Diagonal TLBR">Diagonal Top Left Start</option>
-                  <option value="Diagonal TRBL">Diagonal Top Right Start</option>
-                  <option value="Super">Super</option>
-                  <option value="Asymmetry">Asymmetry</option>
-              </select>
-            </p>
-            <p>
-              <label for="starting" title="Please input the starting square. Leave blank (or put 0) to not enforce.">Starting Square: </label>
-              <input type="number" name="starting" id="startingInput" value="0" min="0" max="20" inputmode="numeric" size="5"/>
-            </p>
-            <p>
-              <label for="findAll" title="Continue the program after a solution has been found. CAUTION: may extend solve time significantly.">Find all solutions: </label>
-              <input type="checkbox" name="findAll" id="findAllInput" >
-            </p>
-            <p>
-              <button type="submit" form="puzzleForm" class="submitButton">Solve</button>
-            </p>
-        </form>
-      </div>
+      <form action="/solve" method="post" id="puzzleForm" class="inputForm">
+          <h3 class="formHeader required">Puzzle Details:</h3>
+          <p>
+            <label for="rows" title="Number of rows in the puzzle" >Number of Rows:</label>
+            <input type="number" name="rows" id="rowInput" min="3" placeholder="5" size="2" required/>
+          </p>
+          <p>
+            <label for="columns" title="Number of columns in the puzzle">Number of Columns: </label>
+            <input type="number" name="columns" id="columnInput" min="3" placeholder="5" size="2"/>
+          </p>
+          <p>
+          </label>
+            <label for="acrossClues" title="List across clues separated by a space">Across Clue Numbers: </label>
+            <input type="text" name="acrossClues" id="acrossInput" contenteditable="true" size='50' pattern="\d+ (?:\d+ )*\d+"  placeholder="1 4 6 7 8  // Ascending numbers separated by a space" required/>
+          </p>
+          <p>
+            <label for="downClues" title="List down clues separated by a space">Down Clues Numbers: </label>
+            <input type="text" name="downClues" id="downInput" contenteditable="true" size='50' pattern="\d+ (?:\d+ )*\d+" placeholder="1 2 3 4 5  // Ascending numbers separated by a space" required/>
+          </p>
+          <h3 class="formHeader">Solving Options:</h3>
+          <p>
+            <label for="symmetry" title="Define the puzzle's symmetry type">Symmetry: </label>
+            <select name="symmetry" id="symmetryInput">
+                <option value="None">None</option>
+                <option value="Rotational">Rotational</option>
+                <option value="Left Right">Left Right</option>
+                <option value="Up Down">Up Down</option>
+                <option value="Dual Rotational">Dual Rotational</option>
+                <option value="Three Way">Three Way</option>
+                <option value="Diagonal TLBR">Diagonal Top Left Start</option>
+                <option value="Diagonal TRBL">Diagonal Top Right Start</option>
+                <option value="Super">Super</option>
+                <option value="Asymmetry">Asymmetry</option>
+            </select>
+          </p>
+          <p>
+            <label for="starting" title="Please input the starting square. Leave blank (or put 0) to not enforce.">Starting Square: </label>
+            <input type="number" name="starting" id="startingInput" value="0" min="0" max="20" inputmode="numeric" size="5"/>
+          </p>
+          <p>
+            <label for="findAll" title="Continue the program after a solution has been found. CAUTION: may extend solve time significantly.">Find all solutions: </label>
+            <input type="checkbox" name="findAll" id="findAllInput" >
+          </p>
+          <p>
+            <button type="submit" form="puzzleForm" class="submitButton">Solve</button>
+          </p>
+      </form>
     </details>
 
     <hr/>
