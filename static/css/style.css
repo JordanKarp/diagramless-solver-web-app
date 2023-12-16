@@ -51,10 +51,9 @@ hr {
     margin-right: 0;
 }
 
-#content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.flexSummary {
+    display: inline;
+    font-size: 1rem;
 }
 
 #options {
@@ -96,27 +95,37 @@ table {
     text-align: center;
 }
 
-.inputOption {
-    background-color: rgb(200, 200, 200);
-    width: fit-content;
-    padding: 0.5rem 1rem;
-    margin: 10px;
-    border-radius: 16px;
-    box-shadow: 2px 2px;
-}
-
-.puzzleForm>label {
-    margin: 5px 0;
-}
 
 .verticalLine {
     border-left: 2px solid black;
 }
 
 #puzzleForm {
-    display: flex;
-    flex-direction: column;
+    display: table;
 }
+
+#puzzleForm p {
+    display: table-row;
+    font-size: 1rem;
+
+}
+
+#puzzleForm input,
+#puzzleForm select {
+    display: table-cell;
+    font-size: 1.1rem;
+}
+
+#puzzleForm label {
+    display: table-cell;
+    padding: 0 1rem;
+}
+
+.exampleForm input,
+.exampleForm select {
+    width: 100px;
+}
+
 
 #prefilledButtons {
     display: flex;
@@ -134,7 +143,7 @@ table {
 }
 
 
-.required:before {
+.required:after {
     content: " *";
     color: red;
 }
@@ -197,6 +206,14 @@ table {
     box-shadow: 2px 2px;
 }
 
+
+.flex {
+    display: flex;
+}
+
+.sectionHead {}
+
+
 .printMain {
     display: flex;
 }
@@ -218,14 +235,6 @@ table {
     display: flex;
     justify-content: space-between;
 }
-
-.clueTable {
-    margin: 1rem;
-    flex: 15;
-}
-
-
-
 
 .explainationItem {
     flex-basis: content;
@@ -263,7 +272,7 @@ table {
 }
 
 .exampleInput {
-    width: 65px;
+    width: max(65px, 100%);
 
 }
 
