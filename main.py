@@ -25,13 +25,13 @@ def solve():
     if request.method == "POST":
         form_data = request.form
         # Retrieve user inputs from the form
-        rows = form_data.get("rows")
-        columns = form_data.get("columns")
-        aClues = form_data.get("acrossClues")
-        dClues = form_data.get("downClues")
-        sym = form_data.get("sym")
-        starting = form_data.get("starting")
-        findAll = form_data.get("findAll") == "on"
+        rows = form_data.get("rowInput")
+        columns = form_data.get("columnInput")
+        aClues = form_data.get("acrossInput")
+        dClues = form_data.get("downInput")
+        sym = form_data.get("symmetryInput")
+        starting = form_data.get("startingInput")
+        findAll = form_data.get("findAllInput") == "on"
 
         solutions = run(rows, columns, aClues, dClues, sym, starting, findAll)
 
