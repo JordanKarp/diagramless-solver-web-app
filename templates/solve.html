@@ -21,39 +21,35 @@
         <table>
             <tr>
                 <td>Dimensions:</td>
-                <td>{{ ""+ puzzle.get('rows') + ' x ' +  puzzle.get('columns') }}</td>
+                <td>{{ ""+ puzzle.get('rowInput') + ' x ' +  puzzle.get('columnInput') }}</td>
             </tr>
             <tr>
                 <td>Across clues:</td>
-                <td>{{ puzzle.get('acrossClues') }}</td>
+                <td>{{ puzzle.get('acrossInput') }}</td>
             </tr>
             <tr>
                 <td>Down clues:</td>
-                <td>{{ puzzle.get('downClues') }}</td>
+                <td>{{ puzzle.get('downInput') }}</td>
             </tr>
             <tr>
                 <td>Symmetry:</td>
-                {% if puzzle.get('symmetry') %}
-                <td>{{ puzzle.get('symmetry') }}</td>
+                {% if puzzle.get('symmetryInput') %}
+                <td>{{ puzzle.get('symmetryInput') }}</td>
                 {% else %}
                 <td>Not enforced</td>
                 {% endif %}
             </tr>
             <tr>
                 <td>Starting square:</td>
-                {% if puzzle.get('starting')!='0' %}
-                <td>{{ puzzle.get('starting') }}</td>
+                {% if puzzle.get('startingInput')!='0' %}
+                <td>{{ puzzle.get('startingInput') }}</td>
                 {% else %}
                 <td>Not enforced</td>
                 {% endif %}
             </tr>
             <tr>
-                <td>Interconnected:</td>
-                <td>{{ puzzle.get('connected') == 'on'}}</td>
-            </tr>
-            <tr>
                 <td>Find all:</td>
-                <td>{{ puzzle.get('findAll') == 'on'}}</td>
+                <td>{{ puzzle.get('findAllInput') == 'on'}}</td>
             </tr>
             <tr>
                 <td>Solutions found:</td>
