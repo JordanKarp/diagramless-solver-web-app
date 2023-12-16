@@ -4,7 +4,7 @@ from solver.converter import process_cluestring
 from solver.value import SYMMETRIES
 
 
-def run(rows, columns, acc, down, symmetry, starting, connected, findAll):
+def run(rows, columns, acc, down, symmetry, starting, findAll):
     try:
         dimensions = (int(rows), int(columns))
         acrossClueNumbers = [int(x) for x in acc.split(" ")]
@@ -19,7 +19,7 @@ def run(rows, columns, acc, down, symmetry, starting, connected, findAll):
             dimensions, cluestring, symmetryFormatted, startingSquare
         )
         solver_details = SolverDetails(
-            useSymmetry, useStarting, findAll, connected, True, False
+            useSymmetry, useStarting, findAll, True, True, False
         )
         puzzle = Puzzle(puzzle_details, solver_details)
         solutions = puzzle.solve()

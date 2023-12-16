@@ -29,14 +29,13 @@ def solve():
         columns = form_data.get("columns")
         aClues = form_data.get("acrossClues")
         dClues = form_data.get("downClues")
-        symmetry = form_data.get("symmetry")
+        sym = form_data.get("sym")
         starting = form_data.get("starting")
-        connected = "True"
+
         findAll = form_data.get("findAll") == "on"
 
-        solutions = run(
-            rows, columns, aClues, dClues, symmetry, starting, connected, findAll
-        )
+        solutions = run(rows, columns, aClues, dClues, sym, starting, findAll)
+
         session["puzzle"] = form_data
         session["solutions"] = solutions
     elif request.method == "GET":
