@@ -100,23 +100,24 @@ table {
     border-left: 2px solid black;
 }
 
-#puzzleForm {
+
+.inputForm {
     display: table;
 }
 
-#puzzleForm p {
+.inputForm p {
     display: table-row;
     font-size: 1rem;
 
 }
 
-#puzzleForm input,
-#puzzleForm select {
+.inputForm input,
+.inputForm select {
     display: table-cell;
     font-size: 1.1rem;
 }
 
-#puzzleForm label {
+.inputForm label {
     display: table-cell;
     padding: 0 1rem;
 }
