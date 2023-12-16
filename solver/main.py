@@ -24,5 +24,6 @@ def run(rows, columns, acc, down, symmetry, starting, findAll):
         puzzle = Puzzle(puzzle_details, solver_details)
         solutions = puzzle.solve()
         return solutions.return_grids()
-    except Exception:
+    except Exception as e:
+        print(e)
         return []

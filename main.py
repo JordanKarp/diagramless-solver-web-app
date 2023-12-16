@@ -31,7 +31,6 @@ def solve():
         dClues = form_data.get("downClues")
         sym = form_data.get("sym")
         starting = form_data.get("starting")
-
         findAll = form_data.get("findAll") == "on"
 
         solutions = run(rows, columns, aClues, dClues, sym, starting, findAll)
