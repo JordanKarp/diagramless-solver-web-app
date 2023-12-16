@@ -31,7 +31,7 @@ def solve():
         dClues = form_data.get("downClues")
         symmetry = form_data.get("symmetry")
         starting = form_data.get("starting")
-        connected = True
+        connected = "True"
         findAll = form_data.get("findAll") == "on"
 
         solutions = run(
