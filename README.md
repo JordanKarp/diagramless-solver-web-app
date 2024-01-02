@@ -30,13 +30,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/JordanKarp/diagramless-solver-web-app">
-    <img src="public/img/facicon.ico" alt="Logo" width="80" height="80">
+    <img src="static/img/facicon.ico" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Diagramless Crossword Solver</h3>
 
   <p align="center">
-    A online database for the Karp family recipes.
+    A builder for a diagramless crossword puzzle grid, using only clue numbers.
     <br />
     <a href="https://github.com/JordanKarp/diagramless-solver-web-app"><strong>Explore the docs »</strong></a>
     <br />
@@ -84,30 +84,14 @@
 
 ### Features
 
-A fully functioning online database for recipes, featuring:
-
-- Homepage with a random recipe and a navigation bar.
-- Browse all recipes by title, by category, or by tag.
-- View full recipe details, including commments and ratings.
-- Search functionality.
-- Authenticated registration and login system.
-
-As a logged in user:
-
-- Create, update, and delete on recipes, categories, and tags.
-- Leave a comment and a rating on recipes.
-- View other users and their comments, ratings, and changes.
-- View all database changes.
+<!-- TODO -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
-- [![MongoDB][MongoDB.com]][MongoDB-url]
-- [![Mongoose][Mongoose.com]][Mongoose-url]
-- [![Express][Express.com]][Express-url]
-- [![Pug][Pug.com]][Pug-url]
-- [![Passport][Passport.com]][Passport-url]
+- [![Python][Python.com]][Python-url]
+- [![Flask][Flask.com]][Flask-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -152,10 +136,10 @@ This is an example of how to list things you need to use the software and how to
 -->
 
 <!-- USAGE EXAMPLES -->
-<!--
+
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+<!-- TODO -->
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
@@ -165,10 +149,9 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-- [ ] Sub-Categories
-- [ ] Ratings on search page
-- [ ] Live search
-- [ ] Add more recipes!
+<!-- TODO -->
+
+- [ ] Add puzzle import support
 
 See the [open issues](https://github.com/JordanKarp/diagramless-solver-web-app/issues) for a full list of proposed features (and known issues).
 
@@ -232,14 +215,8 @@ Project Link: [https://github.com/JordanKarp/diagramless-solver-web-app](https:/
 [license-url]: https://github.com/JordanKarp/diagramless-solver-web-app/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/jordankarp
-[product-screenshot]: public/images/recipe_screen.png
-[MongoDB.com]: https://img.shields.io/badge/mongodb-47A248?style=for-the-badge&logo=mongodb&logoColor=white
-[MongoDB-url]: https://mongodb.com
-[Mongoose.com]: https://img.shields.io/badge/mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white
-[Mongoose-url]: https://mongoose.com
-[Express.com]: https://img.shields.io/badge/express-eeeeee?style=for-the-badge&logo=express&logoColor=black
-[Express-url]: https://expressjs.org
-[Pug.com]: https://img.shields.io/badge/pug-A86454?style=for-the-badge&logo=pug&logoColor=white
-[Pug-url]: https://pugjs.org
-[Passport.com]: https://img.shields.io/badge/passport-34E27A?style=for-the-badge&logo=passport&logoColor=white
-[Passport-url]: https://passportjs.org
+[product-screenshot]: static/img/puz.png
+[Python.com]: https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white
+[Python-url]: https://python.org
+[Flask.com]: https://img.shields.io/badge/flask-000000?style=for-the-badge&logo=flask&logoColor=white
+[Flask-url]: https://flask.palletsprojects.com/en/3.0.x/
