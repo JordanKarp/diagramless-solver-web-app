@@ -1,5 +1,3 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-
 <a name="readme-top"></a>
 
 <!--
@@ -104,8 +102,6 @@
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
-
-
 ### Prerequisites
 
 This is an example of how to list things you need to use the software and how to install them.
@@ -186,7 +182,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Jordan Karp - JordanMatthew.Karp@gmail.com
+Jordan Karp - <a href="mailto:JordanMatthew.Karp@gmail.com " target="_blank">JordanMatthew.Karp@gmail.com </a>
 
 Project Link: [https://github.com/JordanKarp/diagramless-solver-web-app](https://github.com/JordanKarp/diagramless-solver-web-app)
 

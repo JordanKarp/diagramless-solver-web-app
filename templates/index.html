@@ -19,8 +19,18 @@
     <hr/>
     <details class='flex' open>
       <summary><h2 class="flexSummary">Intro</h2></summary>
-      <p>This crossword puzzle solver is different than most, as it takes a <i>diagramless</i> crossword puzzle and solves for the grid.</p>
-      <p>If you're looking for more information on diagramless puzzles or the solver itself, click the <box-icon name='info-circle' type='solid' ></box-icon> in the top right. Or check out an example below.</p></p>
+      <p>In crossword puzzles that are typical in daily newspapers and crossword
+        puzzle books, the solver is presented with A) a grid (of black, numbered, and
+        blank squares); and B) a set of numbered across and down clues. The solver's
+        goal is to fill the answers to the clues in the grid.</p>
+      <p>In a diagramless crossword puzzle, the solver is presented with (B)—a set of
+        numbered across and down clues, and, optionally, the starting square number
+        and type of puzzle symmetry, if any and must accomplish two things: 1) create
+        the grid (by determining the relationships between the clue numbers (A); and 2)
+        fill in the answers to the clues in the grid.</p>
+        <p>D-G-Solver takes Part A of the diagramless puzzle; it determines the grid (the
+          black, numbered, and blank squares by examining the across and down clues
+          along with the optional information that may be provided.</p>
     </details>
 
     <hr/>
@@ -214,7 +224,7 @@
 
     <hr/>
     <details class='flex' open>
-      <summary><h2 style="display: inline; font-size: 1rem;">User Input:</h2></summary>
+      <summary><h2 class='sectionHead' style="display: inline; font-size: 1rem;">User Input</h2></summary>
       <form action="/solve" method="post" id="puzzleForm" class="inputForm">
           <h3 class="formHeader required">Puzzle Details:</h3>
           <p>

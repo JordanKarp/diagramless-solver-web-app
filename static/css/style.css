@@ -63,6 +63,13 @@ hr {
     font-size: 1rem;
 }
 
+.sectionHead {
+    display: inline;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+
 #options {
     display: flex;
     justify-content: center;
