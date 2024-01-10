@@ -31,8 +31,8 @@ details {
 .content-grid,
 .full-width {
     --padding-inline: 2rem;
-    --content-max-width: 90ch;
-    --breakout-max-width: 1300px;
+    --content-max-width: 800px;
+    --breakout-max-width: 1200px;
     --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
 
     display: grid;
